@@ -1,4 +1,5 @@
 const body = document.querySelector('body')
+body.style.backgroundColor = 'lightBlue'
 
 function headHome () {
     const header = document.createElement('header')
@@ -16,20 +17,50 @@ function headHome () {
         li.textContent = menu[i]
         ul.appendChild(li)
 
+
         const ul2 = document.createElement('ul')
         for (let j = 0; j < subMenu.length; j++) {
             const li2 = document.createElement('li')
             li2.textContent = subMenu[j]
             ul2.appendChild(li2)
             ul.appendChild(ul2)
+
+            //style
+            ul2.style.backgroundColor = 'lightGreen'
+            ul2.style.display = 'none'
+            ul2.style.padding = '0'
+            ul2.style.zIndex = '1'
+
+
+            li.addEventListener('mouseover', () => {
+                ul2.style.display = 'block'
+            })
+            li.addEventListener('mouseout', () => {
+                ul2.style.display = 'none'
+            })
         }
+
+        //style
+        li.style.listStyle = 'none'
+        li.style.margin = '0 15px'
+
+        ul2.style.listStyle = 'none'
     }
 
     //style
-    body.style.backgroundColor = 'lightBlue'
-    header.style.backgroundColor = 'lightGreen'
-}
+    ul.style.backgroundColor = 'lightPink'
+    ul.style.margin = '0px'
+    ul.style.padding = '0px'
+    ul.style.display = 'flex'
+    ul.style.width = '60%'
+    ul.style.flexDirection = 'row'
 
+    nav.style.backgroundColor = 'red'
+    nav.style.height = '100px'
+    nav.style.display = 'inlineBlock'
+    nav.style.position = 'relative'
+
+}
 
 
 function formEstabelecimento () {
