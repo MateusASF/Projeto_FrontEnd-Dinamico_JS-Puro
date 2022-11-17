@@ -29,7 +29,6 @@ function headHome () {
             ul2.style.backgroundColor = 'lightGreen'
             ul2.style.display = 'none'
             ul2.style.padding = '0'
-            ul2.style.zIndex = '1'
 
 
             li.addEventListener('mouseover', () => {
@@ -43,8 +42,6 @@ function headHome () {
         //style
         li.style.listStyle = 'none'
         li.style.margin = '0 15px'
-
-        ul2.style.listStyle = 'none'
     }
 
     //style
@@ -57,9 +54,6 @@ function headHome () {
 
     nav.style.backgroundColor = 'red'
     nav.style.height = '100px'
-    nav.style.display = 'inlineBlock'
-    nav.style.position = 'relative'
-
 }
 
 
