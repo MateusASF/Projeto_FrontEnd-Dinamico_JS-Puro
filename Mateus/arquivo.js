@@ -30,26 +30,22 @@
                 //     })
                 // }).then((response) => {
                 //     if (response.ok) {
-                //         // for (child of response) {
-                //         // }
-                //         alert('sou lindo')
-
-                //         response.json().then(() => {
-
-                //         })
+                //         // for (child of response) {}
+                //         alert('conectou com a API')
+                //         response.json().then(() => {})
 
 
-                //     } else {
-                //         alert('caiu aqui no else')
+                    biblioteca.elementoFooter({
+                    nomeCategoria: 'teste',
+                    quantidadeCategoria: 5,
+                    linkA: '../index.html'
+                    })
+
                 //     }
                 // }).catch((error) => {
                 //     alert('Erro geral na comunicação:')
                 // })
-                biblioteca.elementoFooter({
-                    nomeCategoria: 'teste',
-                    quantidadeCategoria: 5,
-                    linkA: '../index.html'
-                })
+
             ]))
     });
 })();
