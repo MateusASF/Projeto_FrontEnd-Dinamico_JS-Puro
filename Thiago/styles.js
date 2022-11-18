@@ -38,13 +38,23 @@
             background: lightgreen;
         }
 
+        header div {
+            display: flex;
+            flexDirection: row;
+            justifyContent: 'space-between',
+        }
+
         header img {
             min-height: 100px;
             max-height: 8rem; 
             min-width: 300px;
             Max-width: 400px;
-            position:absolute;
         }
+
+        header nav{
+            border:none;
+        }
+
         `;
     document.body.appendChild(style);
 })();    
