@@ -17,7 +17,7 @@
         main.appendChild(
             biblioteca.header([
                     biblioteca.elementoHeader({
-                    imgheader: 'https://emojipedia-us.s3.amazonaws.com/social/emoji/thumbs-up.png',
+                    imgheader: '/img/logo.jpeg',
                     })
             ]))
     });
