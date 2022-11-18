@@ -18,7 +18,7 @@
                 workResumeTitleContent: 'Trabalho de Front Dinâmico in Vanilla JS',
                 workResumeSubTitleContent: 'Grupo: Barões da APIzinha',
                 workResumeFocusTextContent: 'Integrantes: Jhuliani, Natália Fontanezi, Mateus Augusto, Thiago, Viviane',
-                workResumeTextContent: 'Trabalho com o objetivo de colocar em práticas os conceitos aprendidos em JavaScript, como: Conexão com API através do front, Estrura DOM, organização de código JavaScript, etc',
+                workResumeTextContent: 'Trabalho com o objetivo de colocar em práticas os conceitos aprendidos em JavaScript, como: Conexão com API através do front, Estrutura DOM, organização de código JavaScript, etc',
             })
         ]))
     })
