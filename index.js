@@ -33,7 +33,7 @@
                         response.json().then(() => {})
 
 
-
+                        
                         biblioteca.footer([
                             biblioteca.elementoFooter({
                                 nomeCategoria: 'teste',
