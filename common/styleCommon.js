@@ -1,6 +1,5 @@
 //header e footer
 
-
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
@@ -10,6 +9,7 @@
             margin: 0;
             padding: 0;
             color: #000;
+            background: #f6f2f2;
         }
         footer {
             height: 5rem;

@@ -82,6 +82,34 @@ window.biblioteca = {
         }
     
         return link;
+    },
+    workResumeContainer: (children) => {
+        const workResumeContainer = document.createElement('div');
+        workResumeContainer.classList.add('workResumeContainer')
+        for (const child of children) {
+            workResumeContainer.appendChild(child);
+        }
+        return workResumeContainer
+    },
+    workResume: ({workResumeTitleContent, workResumeSubTitleContent, workResumeFocusTextContent, workResumeTextContent}) => {
+        const divWorkResume = document.createElement('div');
+        divWorkResume.classList.add('cardResumeContainer')
+
+        const workResumeTitle = document.createElement('h1');
+        const workResumeSubTitle = document.createElement('h2');
+        const workResumeFocusText = document.createElement('span');
+        const workResumeText = document.createElement('p');
+        
+        workResumeTitle.textContent = workResumeTitleContent;
+        workResumeSubTitle.textContent = workResumeSubTitleContent;
+        workResumeFocusText.textContent = workResumeFocusTextContent;
+        workResumeText.textContent = workResumeTextContent;
+
+        divWorkResume.appendChild(workResumeTitle) 
+        divWorkResume.appendChild(workResumeSubTitle) 
+        divWorkResume.appendChild(workResumeFocusText) 
+        divWorkResume.appendChild(workResumeText)
+
+        return divWorkResume;
     }
-    
 }
