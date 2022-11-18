@@ -19,7 +19,10 @@
                     biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
                     })
-            ]))
+            ])
+            )
+
+
     });
 })
 
