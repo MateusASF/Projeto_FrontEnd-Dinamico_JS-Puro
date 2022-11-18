@@ -34,12 +34,15 @@
             color: #000;
         }
         header {
+            height: 8rem; 
             background: lightgreen;
         }
-        
+
         header img {
-            width: 100%;
-            height: 20%;
+            min-height: 100px;
+            max-height: 8rem; 
+            min-width: 300px;
+            Max-width: 400px;
             position:absolute;
         }
         `;
