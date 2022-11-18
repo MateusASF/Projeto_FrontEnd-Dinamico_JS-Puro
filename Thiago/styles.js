@@ -50,11 +50,6 @@
             min-width: 300px;
             Max-width: 400px;
         }
-
-        header nav{
-            border:none;
-        }
-
         `;
     document.body.appendChild(style);
 })();    
