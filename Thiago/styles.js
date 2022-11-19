@@ -43,6 +43,7 @@
             flex-direction: row;
             justify-content: 'space-between',
             margin: 0;
+            width: 100vw;
         }
 
         header img {
@@ -54,6 +55,15 @@
 
         header a {
             font-size: 24px;
+        }
+
+        header nav{
+            //align-items: right;
+            //align-self: right;
+        }
+
+        .cardcategoria a div{
+            width:auto;
         }
         `;
     document.body.appendChild(style);
