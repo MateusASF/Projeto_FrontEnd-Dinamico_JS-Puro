@@ -40,8 +40,9 @@
 
         header div {
             display: flex;
-            flexDirection: row;
-            justifyContent: 'space-between',
+            flex-direction: row;
+            justify-content: 'space-between',
+            margin: 0;
         }
 
         header img {
@@ -49,6 +50,10 @@
             max-height: 8rem; 
             min-width: 300px;
             Max-width: 400px;
+        }
+
+        header a {
+            font-size: 24px;
         }
         `;
     document.body.appendChild(style);
