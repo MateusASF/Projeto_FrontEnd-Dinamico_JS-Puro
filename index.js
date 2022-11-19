@@ -12,6 +12,14 @@
         const main = document.createElement('main');
         document.body.appendChild(main);
     
+        main.appendChild(
+            biblioteca.header([
+                biblioteca.elementoHeader({
+                imgheader: '/img/logo.jpeg',
+                })
+            ])
+        )
+
         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
             method: 'POST',
             headers: {
