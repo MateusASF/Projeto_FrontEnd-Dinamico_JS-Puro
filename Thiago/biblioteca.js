@@ -40,6 +40,11 @@ window.biblioteca = {
     const ListaE = document.createElement("a");
     const CadE = document.createElement("a");
 
+    
+    subMenuC.classList.add('submenu')
+    subMenuE.classList.add('submenu')
+
+
     ListaC.link = "./page.html";
     CadC.link = "./page.html";
     ListaE.link = "./page.html";

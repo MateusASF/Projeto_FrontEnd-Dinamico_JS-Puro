@@ -23,6 +23,7 @@
             height: auto;
             float: left;
             margin:.5rem;
+            width: auto;
         }
         .cardCategoria p, span, a {
             margin: 2px 4px 0 0 ;
@@ -64,6 +65,10 @@
 
         .cardcategoria a div{
             width:auto;
+        }
+
+        .submenu {
+            width: auto
         }
         `;
     document.body.appendChild(style);
