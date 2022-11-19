@@ -154,10 +154,10 @@ window.biblioteca = {
         subMenuC.classList.add('submenu')
         subMenuE.classList.add('submenu')
 
-        ListaC.link = "./page.html";
-        CadC.link = "./page.html";
-        ListaE.link = "./page.html";
-        CadE.link = "./page.html";
+        ListaC.href = "./index.html";
+        CadC.href = "./index.html";
+        ListaE.href = "./index.html";
+        CadE.href = "./index.html";
 
         ListaC.text = "Listar";
         CadC.text = "Cadastrar";
