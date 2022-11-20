@@ -3,20 +3,13 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
-        html, body {
-            font-family: Arial;
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            color: #000;
-        }
-
-
         .workResumeContainer{
             display: flex;
-            alignContent: right;
             width: 100%;
             background: #ab956d;
+            position: relative;
+            top: 10rem;
+            height: 400px;
         }
 
         .cardResumeContainer {
@@ -28,6 +21,7 @@
             alignItems: center;
             justifyContent: center;
             border-radius: 3vw;
+            height: 250px;
         }
         
         .cardResumeContainer h1, h2, span, p {

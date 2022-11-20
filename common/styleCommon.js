@@ -13,13 +13,13 @@
         }
         footer {
             height: 5rem;
-            background: #5d55e9;
+            background: #121842;
             position: absolute;
             bottom: 0;
             width: 100vw;
         }
 
-        .cardCategoria{
+        .cardMenu{
             display: flex;
             flex-direction: row;
             padding: 1rem 0 1rem 2rem;
@@ -33,14 +33,30 @@
             font-family: 'Times New Roman';
         }
 
+        .cardCategoria{
+            display: flex;
+            padding: 0.3rem;
+            margin: .8rem;
+            font-weight: bold;
+            font-family: 'Times New Roman';
+            background: #191970;
+            float: left;
+            border-radius: 15px;
+        }
+
         .cardCategoria p, span, a {
-            margin: 2px 4px 0 0 ;
-            font-size: 10px;
+            margin: 0px 4px 0 2px ;
+            font-size: 13px;
+            color: #f6f2f2;
+        }
+
+        .cardMenu a {
+            color: #121842 ;
         }
 
         .cardCategoria a {
             text-decoration: none;
-
+            color: #f6f2f2;
         }
 
         header {

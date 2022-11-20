@@ -128,7 +128,7 @@ window.biblioteca = {
         const link = document.createElement("a");
         const img = document.createElement("img");
 
-        divMenu.classList.add("cardCategoria");
+        divMenu.classList.add("cardMenu");
 
         link.href = "./page.html";
         img.src = imgheader;
