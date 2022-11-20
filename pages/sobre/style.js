@@ -5,11 +5,11 @@
     style.innerHTML = `
         .workResumeContainer{
             display: flex;
-            width: 100%;
+            width: 100vw;
             background: #ab956d;
             position: relative;
             top: 10rem;
-            height: 400px;
+            height: 80vh;
         }
 
         .cardResumeContainer {
@@ -21,7 +21,7 @@
             alignItems: center;
             justifyContent: center;
             border-radius: 3vw;
-            height: 250px;
+            height: 40vh;
         }
         
         .cardResumeContainer h1, h2, span, p {
@@ -33,7 +33,17 @@
             margin-top: 0;
         }
 
+        @media(max-width: 1024px) and (min-width: 769px){
 
+        }
+
+        @media(max-width: 768px) and (min-width: 481px){
+
+        }
+
+        @media(max-width: 480px) and (min-width: 320px){
+
+        }
         `;
     document.body.appendChild(style);
 })();    
