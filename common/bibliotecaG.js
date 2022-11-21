@@ -206,5 +206,62 @@ window.biblioteca = {
         divHeader.appendChild(divMenu);
 
         return divHeader;
+    },
+
+    createDiv: (nameClass) => {
+        const div = document.createElement("div");
+        div.classList.add(nameClass);
+    
+        return div;
+    },
+
+    createForm2:(children) => {
+        const form = document.createElement('form');
+        for (const child of children) {
+            form.appendChild(child);
+        }
+        
+        return form;
+    },
+
+    createField2: ({label, input}) => {
+        const field = document.createElement('div');
+        field.classList.add('field');
+        const labelContainer = document.createElement('div');
+        const labelElement = document.createElement('label');
+        labelContainer.appendChild(labelElement);
+        field.appendChild(labelContainer);
+        labelElement.textContent = label +':';
+        field.appendChild(input);
+        return field;
+    },
+
+
+        createButton2: ({text, type, onClick = ()=>{}}) => {
+            const button = document.createElement('button');
+            button.setAttribute('type', type);
+            button.textContent = text;
+            button.addEventListener('click', onClick);
+            return button;
+    },
+
+    createInput2: ({type, placeholder="", name, id}) => {
+        const input = document.createElement("input");
+        input.setAttribute("type", type );
+        input.setAttribute("placeholder", placeholder);
+        input.setAttribute("name", name);
+        input.setAttribute('id', id);
+    
+        return input;
+    },
+
+    createH1: (text, id) =>
+    {
+        const h1 = document.createElement('h1');
+        h1.textContent = text;
+        h1.setAttribute('id', id);
+        
+        return h1;
+
     }
 }
