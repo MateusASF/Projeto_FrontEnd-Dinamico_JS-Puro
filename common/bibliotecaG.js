@@ -29,16 +29,19 @@ window.biblioteca = {
         button.addEventListener('click', onClick);
         return button;
     },
-    createForm: () => {
-        const form = document.createElement('form');
-        return form;
-    },
     form: (children) => {
         const form = document.createElement('form');
         for (const child of children) {
             form.appendChild(child);
         }
         return form;
+    },
+    div: (children) => {
+        const div = document.createElement('div');
+        for (const child of children) {
+            div.appendChild(child);
+        }
+        return div;
     },
     actions: (children) => {
         const actions = document.createElement('div');
@@ -57,6 +60,17 @@ window.biblioteca = {
         field.appendChild(labelContainer);
         labelElement.textContent = label +':';
         field.appendChild(input);
+        return field;
+    },
+    listReturn: ({label, p}) => {
+        const field = document.createElement('div');
+        field.classList.add('field');
+        const labelContainer = document.createElement('div');
+        const labelElement = document.createElement('label');
+        labelContainer.appendChild(labelElement);
+        field.appendChild(labelContainer);
+        labelElement.textContent = label +':';
+        field.appendChild(p);
         return field;
     },
     input: ({type = 'text', name, onKeyPress = ()=>{}}) => {

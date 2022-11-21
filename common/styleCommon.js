@@ -77,10 +77,6 @@
         }
 
         header img {
-            // min-height: 100px;
-            // max-height: 8rem; 
-            // min-width: 300px;
-            // Max-width: 400px;
             width: 28vw;
             position: fixed;
             top: 0;
@@ -88,7 +84,6 @@
         }
 
         header a {
-            // font-size: 24px;
             font-size: 2vw;
             text-decoration: none;
             margin-right: 2rem;
