@@ -298,9 +298,10 @@ window.biblioteca = {
     },
 
 
-        createButton2: ({text, type, onClick = ()=>{}}) => {
+        createButton2: ({text, type, id, onClick = ()=>{}}) => {
             const button = document.createElement('button');
             button.setAttribute('type', type);
+            button.setAttribute('id', id);
             button.textContent = text;
             button.addEventListener('click', onClick);
             return button;
