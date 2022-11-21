@@ -109,11 +109,58 @@
 //==================================================================
 
 // (() => {
+
+
+//     async function ChamadaEstabelecimentos() {
+//         await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
+//             method: 'POST',
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//                 "text": "",
+//                 "group": {
+//                     "uid": "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+//                 }
+//             })
+//         }).then((response) => {
+//             if (response.ok) {
+//                 return response.json();
+//             }
+//         }).catch((error) => {
+//             alert('Erro geral na comunicação:')
+//         });
+//     }
+
+//     async function ChamadaCategorias () {
+//         await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
+//         method: 'POST',
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify({
+//             text: '',
+//             group: {
+//                 uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
+//             }
+//         })
+//     }).then(response => {
+//         if (response.ok) {
+//             // alert('conectou com a API')
+
+//             return response
+//         }
+//     }).catch((error) => {
+//         alert('Erro geral na comunicação:')
+//     })
+//     }
+
 //     const scriptStyle = document.createElement('script');
 //     const scriptStyleCommon = document.createElement('script');
 //     const scriptBiblioteca = document.createElement('script');
 //     const chEstabelecimento = ChamadaEstabelecimentos()
 //     const chCategorias = ChamadaCategorias()
+//     console.log(chCategorias)
 
 //     scriptStyle.setAttribute('src', './style.js');
 //     scriptStyleCommon.setAttribute('src', '../../common/styleCommon.js');
@@ -138,8 +185,6 @@
 //             ])
 //         )
 
-        
-
 //         main.appendChild(biblioteca.workResumeContainer([
 //             biblioteca.workResume({
 //                 workResumeTitleContent: 'Trabalho de Front Dinâmico in Vanilla JS',
@@ -149,51 +194,20 @@
 //             })
 //         ]))
 
-//         function ChamadaCategorias () {
-//             fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-//             method: 'POST',
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify({
-//                 text: 'string',
-//                 group: {
-//                     uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
-//                 }
-//             })
-//             }).then((response) => {
-//                 if (response.ok) {
-//                     // alert('conectou com a API')
-//                         return response.json()
-//                 }
-//             }).catch((error) => {
-//                 alert('Erro geral na comunicação:')
-//             });
-//         }
+//         const name = JSON.stringify(chCategorias, ['name']).replace(`{"name":"`, "").replace(`"}`, "")
+//         //const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
 
-//         function ChamadaEstabelecimentos() {
-//             fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
-//                 method: 'POST',
-//                 headers: {
-//                     "Content-Type": "application/json"
-//                 },
-//                 body: JSON.stringify({
-//                         "text": "",
-//                         "group": {
-//                             "uid": "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-//                         }
-//                 })
-//             }).then((response) => {
-//                 if (response.ok) {
-//                     console.log(response)
-//                     return response.json();
-//                 }
-//             }).catch((error) => {
-//                 alert('Erro geral na comunicação:')
-//             });
-//         }
+//         main.appendChild(biblioteca.footer([biblioteca.elementoFooter({
+//             nomeCategoria: name,
+//             //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
+//             quantidadeCategoria: 5, //isso é teoria
+//             linkA: '../index.html'
+//         })]))
 
-        
+//         //console.log("Chamada Categorias => " + chCategorias)
+//         //console.log("Chamada Estabelecimentos => " + chEstabelecimento)
+
+
 //     })
 // })();
 
@@ -211,4 +225,4 @@
 // //         })
 
 // //     ]));
-// //}
+// // }
