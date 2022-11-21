@@ -65,6 +65,7 @@
             height: 8rem; 
             background: #f6f2f2;
             position: fixed;
+            z-index: 50;
         }
 
         header div {
