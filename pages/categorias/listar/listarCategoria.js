@@ -4,8 +4,8 @@
     const scriptBiblioteca = document.createElement('script');
 
     scriptStyle.setAttribute('src', './listarCategoriaStyle.js');
-    scriptStyleCommon.setAttribute('src', '../../common/styleCommon.js');
-    scriptBiblioteca.setAttribute('src', '../../common/bibliotecaG.js');
+    scriptStyleCommon.setAttribute('src', '../../../common/styleCommon.js');
+    scriptBiblioteca.setAttribute('src', '../../../common/bibliotecaG.js');
 
     document.body.appendChild(scriptStyle);
     document.body.appendChild(scriptStyleCommon);
