@@ -22,6 +22,11 @@
             biblioteca.header([
                 biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
+                    linkMenu: '../../index.html',
+                    listCat: '#',
+                    cadCat: '#',
+                    listEst: '#',
+                    cadEst: '../estabelecimentos/estabelecimentosCadastrar.html'
                 })
             ])
         )
@@ -41,7 +46,7 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                text: 'string',
+                text: '',
                 group: {
                     uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
                 }
@@ -50,35 +55,32 @@
             if (response.ok) {
                 // alert('conectou com a API')
                 response.json().then((data) => {
-                    for (i in data) {
-                        const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
-                        const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
+                    //for (i in data) {
+                        // const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
+                        // const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
 
-                        main.appendChild(biblioteca.footer([
-                            biblioteca.elementoFooter({
-                                nomeCategoria: name,
-                                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
-                                quantidadeCategoria: teste(uid),
-                                linkA: '../index.html'
-                            })
-
-                        ]));
-                    }
+                        // const num =  teste((JSON.stringify(data, ['uid']).replace(`{"uid":"`, "").replace(`"}`, ""))),
+                        // console.log(num),
+                            main.appendChild(biblioteca.footer(
+                                biblioteca.criaCard(data, 8)
+                            ));
+                    //}
                 });
             }
-
         }).catch((error) => {
             alert('Erro geral na comunicação:')
         });
 
-        function teste(id) {
+
+        async function teste(id) {
+            console.log(id)
             fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    "text": "string",
+                    "text": "",
                     "category": {
                         "uid": id
                     },
@@ -90,7 +92,7 @@
                 if (response.ok) {
                     // alert('conectou com a API')
                     const contagem = response.json().then((data) => {
-                            data.count
+                        return data.length
                     });
                     return contagem
                 }
@@ -108,8 +110,7 @@
 
 //==================================================================
 
-// (() => {
-
+// (async () => {
 
 //     async function ChamadaEstabelecimentos() {
 //         await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
@@ -132,35 +133,40 @@
 //         });
 //     }
 
-//     async function ChamadaCategorias () {
-//         await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-//         method: 'POST',
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             text: '',
-//             group: {
-//                 uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
-//             }
+//     async function ChamadaCategorias() {
+//         const testeAwait = await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
+//             method: 'POST',
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//                 text: '',
+//                 group: {
+//                     uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
+//                 }
+//             })
 //         })
-//     }).then(response => {
-//         if (response.ok) {
-//             // alert('conectou com a API')
+//             .then(response => {
+//                 if (response.ok) {
+//                     // alert('conectou com a API')
 
-//             return response
-//         }
-//     }).catch((error) => {
-//         alert('Erro geral na comunicação:')
-//     })
+//                 }
+//             })
+//             .catch((error) => {
+//                 alert('Erro geral na comunicação:')
+//             })
+//         return await testeAwait.json()
 //     }
 
 //     const scriptStyle = document.createElement('script');
 //     const scriptStyleCommon = document.createElement('script');
 //     const scriptBiblioteca = document.createElement('script');
 //     const chEstabelecimento = ChamadaEstabelecimentos()
-//     const chCategorias = ChamadaCategorias()
-//     console.log(chCategorias)
+
+//     const chCategorias = await ChamadaCategorias()
+
+
+//     console.log("Chamada Categorias => " + JSON.stringify(chCategorias, ["name"]))
 
 //     scriptStyle.setAttribute('src', './style.js');
 //     scriptStyleCommon.setAttribute('src', '../../common/styleCommon.js');
@@ -175,12 +181,15 @@
 //         const main = document.createElement('main');
 //         document.body.appendChild(main);
 
-
-
 //         main.appendChild(
 //             biblioteca.header([
 //                 biblioteca.elementoHeader({
 //                     imgheader: '/img/logo.jpeg',
+//                     linkMenu: '../../index.html',
+//                     listCat: '#',
+//                     cadCat: '#',
+//                     listEst: '#',
+//                     cadEst: '../estabelecimentos/estabelecimentosCadastrar.html'
 //                 })
 //             ])
 //         )
@@ -194,18 +203,14 @@
 //             })
 //         ]))
 
-//         const name = JSON.stringify(chCategorias, ['name']).replace(`{"name":"`, "").replace(`"}`, "")
-//         //const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
 
-//         main.appendChild(biblioteca.footer([biblioteca.elementoFooter({
-//             nomeCategoria: name,
-//             //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
-//             quantidadeCategoria: 5, //isso é teoria
-//             linkA: '../index.html'
-//         })]))
 
-//         //console.log("Chamada Categorias => " + chCategorias)
-//         //console.log("Chamada Estabelecimentos => " + chEstabelecimento)
+//         // main.appendChild(biblioteca.footer(
+//         //     biblioteca.criaCard(data)
+//         // ));
+
+//         console.log("Chamada Categorias => " + chCategorias)
+//         console.log("Chamada Estabelecimentos => " + chEstabelecimento)
 
 
 //     })

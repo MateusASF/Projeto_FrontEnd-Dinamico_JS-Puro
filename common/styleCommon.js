@@ -12,11 +12,10 @@
             background: #f6f2f2;
         }
         footer {
-            height: 12vh;
+            height: 30vh;
             background: #121842;
-            position: fixed;
-            bottom: 0;
-            width: 100vw;
+            width: cover;
+            position: relative;
         }
 
         .cardMenu{
@@ -65,7 +64,7 @@
             height: 8rem; 
             background: #f6f2f2;
             position: fixed;
-            z-index: 50;
+            z-index: 10;
         }
 
         header div {
