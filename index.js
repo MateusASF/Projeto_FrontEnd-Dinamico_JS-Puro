@@ -23,8 +23,14 @@
                     listEst: '#',
                     cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
                 })
-            ])
+            ]),
+
+            
         )
+
+        main.appendChild(biblioteca.createBanner())
+
+
 
         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
             method: 'POST',

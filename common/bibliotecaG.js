@@ -348,5 +348,23 @@ window.biblioteca = {
         }
 
         return array
+    },
+
+    createBanner: () => {
+        const indexContainner = document.createElement('div');
+        indexContainner.classList.add('img-container');
+        const containerImg = document.createElement('div');
+        containerImg.classList.add('img-element-container');
+        indexContainner.appendChild(containerImg);
+        const image = document.createElement('img');
+        image.src = './img/banner2.PNG'; 
+        containerImg.appendChild(image);
+        image.classList.add('img-banner');
+
+
+        return image;
+
+
+
     }
 }
