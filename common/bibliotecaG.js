@@ -176,7 +176,7 @@ window.biblioteca = {
         }
         return header;
     },
-    elementoHeader: ({ imgheader, linkMenu, sobre, listCat, cadCat, listEst, cadEst }) => {
+    elementoHeader: ({ imgheader, linkMenu, sobre, listCat, cadCat, listEst, cadEst}) => {
         //criação do logo
         const divHeader = document.createElement("div");
 
