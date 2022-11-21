@@ -263,9 +263,10 @@ window.biblioteca = {
         subMenuC.style.display = "none";
         subMenuE.style.display = "none";
 
-        divMenu.appendChild(Sobre);
+        
         divMenu.appendChild(Est);
         divMenu.appendChild(Cat);
+        divMenu.appendChild(Sobre);
         divHeader.appendChild(divLogo);
         divHeader.appendChild(divMenu);
 
