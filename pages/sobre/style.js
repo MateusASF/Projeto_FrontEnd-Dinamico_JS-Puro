@@ -5,7 +5,7 @@
     style.innerHTML = `
         .workResumeContainer{
             display: flex;
-            width: 100vw;
+            width: cover;
             background: #ab956d;
             position: relative;
             top: 10rem;

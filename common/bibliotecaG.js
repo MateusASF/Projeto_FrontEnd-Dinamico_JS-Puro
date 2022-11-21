@@ -119,7 +119,7 @@ window.biblioteca = {
         }
         return header;
     },
-    elementoHeader: ({ imgheader }) => {
+    elementoHeader: ({ imgheader, linkMenu, listCat, cadCat, listEst, cadEst }) => {
         //criação do logo
         const divHeader = document.createElement("div");
 
@@ -130,7 +130,7 @@ window.biblioteca = {
 
         divMenu.classList.add("cardMenu");
 
-        link.href = "./page.html";
+        link.href = linkMenu;
         img.src = imgheader;
 
         link.appendChild(img);
@@ -154,10 +154,12 @@ window.biblioteca = {
         subMenuC.classList.add('submenu')
         subMenuE.classList.add('submenu')
 
-        ListaC.href = "./index.html";
-        CadC.href = "./index.html";
-        ListaE.href = "./index.html";
-        CadE.href = "./index.html";
+        ListaC.href = listCat;
+        CadC.href = cadCat;
+
+        ListaE.href = listEst;
+        CadE.href = cadEst;
+
 
         ListaC.text = "Listar";
         CadC.text = "Cadastrar";
@@ -263,5 +265,22 @@ window.biblioteca = {
         
         return h1;
 
+    },
+    criaCard: (data, num) => {
+        const array = [];
+        for (i in data) {
+            const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
+
+            const element = biblioteca.elementoFooter({
+                nomeCategoria: name,
+                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
+                quantidadeCategoria: num,
+                linkA: '../index.html'
+            })
+
+            array.push(element)
+        }
+
+        return array
     }
 }
