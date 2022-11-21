@@ -8,19 +8,7 @@
         document.body.appendChild(script);
     }
 
-<<<<<<< HEAD
     window.addEventListener('load', ()=> {
-=======
-    scriptStyle.setAttribute('src', './listarCategoriaStyle.js');
-    scriptStyleCommon.setAttribute('src', '../../../common/styleCommon.js');
-    scriptBiblioteca.setAttribute('src', '../../../common/bibliotecaG.js');
-
-    document.body.appendChild(scriptStyle);
-    document.body.appendChild(scriptStyleCommon);
-    document.body.appendChild(scriptBiblioteca);
-
-    window.addEventListener('load', () => {
->>>>>>> f519cc25901909595e8e73ea53a07681a1a1f21c
 
         const main = document.createElement('main');
 
