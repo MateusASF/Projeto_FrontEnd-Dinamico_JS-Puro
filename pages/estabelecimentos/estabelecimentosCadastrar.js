@@ -1,6 +1,22 @@
+        
+        
         const main = document.createElement('main');
 
         document.body.appendChild(main);
+
+        main.appendChild(
+            biblioteca.header([
+                biblioteca.elementoHeader({
+                    imgheader: '/img/logo.jpeg',
+                    linkMenu: '#',
+                    sobre: './pages/sobre/sobre.html',
+                    listCat: './pages/categorias/listarCategoria.html',
+                    cadCat: './pages/categorias/cadastrarCategoria.html',
+                    listEst: '#',
+                    cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
+                })
+            ]) 
+        )
 
         const input = {
 

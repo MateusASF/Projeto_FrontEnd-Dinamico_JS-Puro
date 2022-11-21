@@ -23,9 +23,7 @@
                     listEst: '#',
                     cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
                 })
-            ]),
-
-            
+            ]) 
         )
 
         main.appendChild(biblioteca.createBanner())

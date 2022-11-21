@@ -20,11 +20,11 @@
             biblioteca.header([
                 biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
-                    linkMenu: '../../index.html',
+                    linkMenu: '../../../index.html',
                     listCat: '#',
-                    cadCat: './cadastrarCategoria.html',
+                    cadCat: '../cadastrar/cadastrarCategoria.html',
                     listEst: '#',
-                    cadEst: '../estabelecimentos/estabelecimentosCadastrar.html'
+                    cadEst: '../../estabelecimentos/estabelecimentosCadastrar.html'
                 })
             ])
         )

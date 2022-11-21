@@ -18,15 +18,15 @@
             biblioteca.header([
                 biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
-                    linkMenu: '../../index.html',
-                    listCat: './listarCategoria.html',
+                    linkMenu: '../../../index.html',
+                    listCat: '../listar/listarCategoria.html',
                     cadCat: '#',
-                    listEst: '#',
-                    cadEst: '../estabelecimentos/estabelecimentosCadastrar.html'
+                    listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
+                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentoListar.html'
                 })
             ])
         )
-
+        
 
         const inputs = {
             codigo: biblioteca.input({
