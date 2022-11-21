@@ -91,6 +91,7 @@
             // font-size: 24px;
             font-size: 2vw;
             text-decoration: none;
+            margin-right: 2rem;
         }
 
         .cardcategoria a div{
