@@ -85,9 +85,17 @@
                     onclick: onclick
                     
                 }),
+       
 
-           ])                  
+           ]),  
+           
+           
         );
+
+    
+
+      
+       
 
 
         const formCadastrar = document.querySelector('form');

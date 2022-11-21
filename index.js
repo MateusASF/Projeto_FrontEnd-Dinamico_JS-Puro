@@ -17,8 +17,14 @@
                 biblioteca.elementoHeader({
                 imgheader: '/img/logo.jpeg',
                 })
-            ])
+            ]),
+
+            
         )
+
+        main.appendChild(biblioteca.createBanner())
+
+
 
         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
             method: 'POST',
