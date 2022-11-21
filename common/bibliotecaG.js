@@ -176,7 +176,7 @@ window.biblioteca = {
         }
         return header;
     },
-    elementoHeader: ({ imgheader, linkMenu, listCat, cadCat, listEst, cadEst }) => {
+    elementoHeader: ({ imgheader, linkMenu, sobre, listCat, cadCat, listEst, cadEst }) => {
         //criação do logo
         const divHeader = document.createElement("div");
 
@@ -197,6 +197,7 @@ window.biblioteca = {
 
         const Cat = document.createElement("a");
         const Est = document.createElement("a");
+        const Sobre = document.createElement("a");
 
         Cat.classList.add('topMenu');
         Est.classList.add('topMenu');
@@ -217,6 +218,8 @@ window.biblioteca = {
         ListaE.href = listEst;
         CadE.href = cadEst;
 
+        Sobre.href = sobre;
+
 
         ListaC.text = "Listar";
         CadC.text = "Cadastrar";
@@ -224,6 +227,7 @@ window.biblioteca = {
         CadE.text = "Cadastrar";
         Cat.text = "Categorias";
         Est.text = "Estabelecimentos";
+        Sobre.text = "Sobre";
 
         subMenuC.appendChild(CadC);
         subMenuC.appendChild(ListaC);
@@ -259,6 +263,7 @@ window.biblioteca = {
         subMenuC.style.display = "none";
         subMenuE.style.display = "none";
 
+        divMenu.appendChild(Sobre);
         divMenu.appendChild(Est);
         divMenu.appendChild(Cat);
         divHeader.appendChild(divLogo);
