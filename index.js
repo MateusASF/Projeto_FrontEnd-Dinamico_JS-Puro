@@ -17,7 +17,7 @@
                 biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
                     linkMenu: '#',
-                    listCat: './pages/categorias/categoriasListar.html',
+                    listCat: './pages/categorias/listarCategoria.html',
                     cadCat: './pages/categorias/cadastrarCategoria.html',
                     listEst: '#',
                     cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
