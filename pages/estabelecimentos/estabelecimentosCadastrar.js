@@ -91,70 +91,76 @@
            ])                  
         );
 
-        let cont = 0;
 
         const formCadastrar = document.querySelector('form');
 
         formCadastrar.addEventListener('submit', (evento) => {
             evento.preventDefault()
 
-            criarEstab()
+            criarEstab2()
 
         })
 
-        function criarEstab(){
-           // evento.preventDefault()
-            let url = 'xxx';
-            let id = cont++;
-            let categoria = document.getElementById('data-categoria').value;
-            let nome = document.getElementById('data-nome').value;
-            let endereco = document.getElementById('data-endereco').value;
-            let cep = document.getElementById('data-cep').value;
-            let telefone = document.getElementById('data-telefone').value;
-            let email = document.getElementById('data-email').value;
+        const uidGroup = '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2';
 
-            body = {
-                'id' : cont,
-                'categoria': categoria,
-                'nome' : nome,
-                'endereco' : endereco,
-                'cep' : cep,
-                'telefone' : telefone,
-                'email' : email
+        function criarEstab2(){
+            // evento.preventDefault()
+
+             let categoria = document.getElementById('data-categoria').value;
+             let nome = document.getElementById('data-nome').value;
+             let endereco = document.getElementById('data-endereco').value;
+             let cep = document.getElementById('data-cep').value;
+             let telefone = document.getElementById('data-telefone').value;
+             let email = document.getElementById('data-email').value;
+
+              
+             if(categoria === "" ||
+             nome === ""||
+             endereco === ""||
+             cep === ""||
+             telefone === ""||
+             email === ""){
+                 alert('Todos os dados são obrigatórios');
+             }
+
+             else{
+               
+ 
+             body = {
+                 'address' : endereco,
+                 'phone' : telefone,
+                 'name' : nome,
+                 'category': categoria,
+                 'postal-code' : cep,
+                 'email' : email,
+                 'group': {
+                     'uid': uidGroup
+                 }
+                }
+
+                 criarPost2(body)
             }
-
-            if(categoria === "" ||
-            nome === ""||
-            endereco === ""||
-            cep === ""||
-            telefone === ""||
-            email === ""){
-                alert('Todos os dados são obrigatórios');
-            }
-            else{
-                criarPost(url, body)
+         }
 
 
-            }
+        function criarPost2(estabelecimento) {
 
+            fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(estabelecimento)
+                
+            }).then((response) => {
+                if (response.ok) {
+                    alert('conectou com a API');
 
+                }
+            })
         }
 
-        
-        function criarPost(url, body){
-
-            // let request = new XMLHttpRequest();
-            // request.open("POST", url, true);
-            // request.sendRequestHeader('Content-type', 'application/json');
-            // request.send(JSON.stringify(body))
-
-            if(url==='xxx'){
-
-                alert('Estabelecimento cadastrado com sucesso');
-                clearFields()
-            }
-
-        }
+       
 
         //evento Editar 
         //abrir tela Editar = botao diferente de Cadastrar
@@ -190,9 +196,106 @@
 
         }
 
+        function criarEstab(){
+            // evento.preventDefault()
+             let url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment';
+             let categoria = document.getElementById('data-categoria').value;
+             let nome = document.getElementById('data-nome').value;
+             let endereco = document.getElementById('data-endereco').value;
+             let cep = document.getElementById('data-cep').value;
+             let telefone = document.getElementById('data-telefone').value;
+             let email = document.getElementById('data-email').value;
+ 
+             body = {
+                 'address' : endereco,
+                 'phone' : telefone,
+                 'name' : nome,
+                 'category': categoria,
+ 
+ 
+                 'postal-code' : cep,
+                 'email' : email,
+                 'group': {
+                     'uid': uidGroup
+                 }
+             }
+ 
+             if(categoria === "" ||
+             nome === ""||
+             endereco === ""||
+             cep === ""||
+             telefone === ""||
+             email === ""){
+                 alert('Todos os dados são obrigatórios');
+             }
+             else{
+                 criarPost(url, body)
+ 
+             }
+ 
+         }
+          
+         
+ 
+ 
+         function criarEstab(){
+            // evento.preventDefault()
+             let url = 'http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment';
+             let categoria = document.getElementById('data-categoria').value;
+             let nome = document.getElementById('data-nome').value;
+             let endereco = document.getElementById('data-endereco').value;
+             let cep = document.getElementById('data-cep').value;
+             let telefone = document.getElementById('data-telefone').value;
+             let email = document.getElementById('data-email').value;
+ 
+             body = {
+                 'address' : endereco,
+                 'phone' : telefone,
+                 'name' : nome,
+                 'category': categoria,
+ 
+ 
+                 'postal-code' : cep,
+                 'email' : email,
+                 'group': {
+                     'uid': uidGroup
+                 }
+             }
+ 
+             if(categoria === "" ||
+             nome === ""||
+             endereco === ""||
+             cep === ""||
+             telefone === ""||
+             email === ""){
+                 alert('Todos os dados são obrigatórios');
+             }
+             else{
+                 criarPost(url, body)
+ 
+             }
+ 
+         }
+ 
+         
+         function criarPost(url, body){
+ 
+             let request = new XMLHttpRequest();
+             request.open("POST", url, true);
+             request.sendRequestHeader('Content-type', 'application/json');
+             request.send(JSON.stringify(body))
+ 
+             ///if(url==='xxx'){
+ 
+                 alert('Estabelecimento cadastrado com sucesso');
+                 clearFields()
+             //}
+ 
+         }
+ 
     
 
 
 
 
-
+    

@@ -107,6 +107,7 @@
             margin-right: 2rem;
         }
 
+
         @media(max-width: 1024px) and (min-width: 769px){
             header img {
                 width: 28vw;

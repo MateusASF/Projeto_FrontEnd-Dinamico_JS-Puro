@@ -1,3 +1,0 @@
-import {estabelecimentosCadastrar} from './estabelecimentosCadastrar'
-
-

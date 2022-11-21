@@ -228,7 +228,9 @@ window.biblioteca = {
         const field = document.createElement('div');
         field.classList.add('field');
         const labelContainer = document.createElement('div');
+        labelContainer.classList.add('label-container');
         const labelElement = document.createElement('label');
+        labelElement.classList.add('label-element');
         labelContainer.appendChild(labelElement);
         field.appendChild(labelContainer);
         labelElement.textContent = label +':';
