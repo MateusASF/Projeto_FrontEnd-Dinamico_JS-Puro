@@ -4,7 +4,7 @@
         'common/styleCommon.js'
     ]) {
         const script = document.createElement('script');
-        script.setAttribute('src', `/${file}`);
+        script.setAttribute('src', `../../../${file}`);
         document.body.appendChild(script);
     }
 
