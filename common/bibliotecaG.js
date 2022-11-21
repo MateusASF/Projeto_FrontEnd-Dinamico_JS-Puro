@@ -33,15 +33,72 @@ window.biblioteca = {
         const form = document.createElement('form');
         return form;
     },
-    createField: (label, child) => {
-        const field = document.createElement('div');
-        field.classList.add('fiel');
-        const labelElement = document.createElement('label');
-        labelElement.textContent = label + ':';
-        field.appendChild(labelElement);
-        field.appendChild(child);
-        return field
+    form: (children) => {
+        const form = document.createElement('form');
+        for (const child of children) {
+            form.appendChild(child);
+        }
+        return form;
     },
+    actions: (children) => {
+        const actions = document.createElement('div');
+        actions.classList.add('actions')
+        for (const child of children) {
+            actions.appendChild(child);
+        }
+        return actions;
+    },
+    field: ({label, input}) => {
+        const field = document.createElement('div');
+        field.classList.add('field');
+        const labelContainer = document.createElement('div');
+        const labelElement = document.createElement('label');
+        labelContainer.appendChild(labelElement);
+        field.appendChild(labelContainer);
+        labelElement.textContent = label +':';
+        field.appendChild(input);
+        return field;
+    },
+    input: ({type = 'text', name, onKeyPress = ()=>{}}) => {
+        const input = document.createElement('input');
+        input.setAttribute('type', type);
+        input.setAttribute('name', name);
+        input.addEventListener('keypress', onKeyPress);
+        return input;
+    },
+    button: ({text, type = 'default', onClick = ()=>{}}) => {
+        const button = document.createElement('button');
+        button.classList.add(type);
+        button.setAttribute('type', 'button');
+        button.textContent = text;
+        button.addEventListener('click', onClick);
+        return button;
+    },
+    notification: {
+        timer: null,
+        element: null,
+        create: ({text, type}) => {
+            biblioteca.notification.remove();
+            const element = document.createElement('div');
+            element.classList.add('notification');
+            element.classList.add(`notification-${type}`);
+            element.textContent = text;
+            biblioteca.notification.element = element;
+            document.body.appendChild(element);
+            biblioteca.notification.timer = setTimeout(() => {
+                biblioteca.notification.remove();
+            }, 5000);
+        },
+        remove: () => {
+            if (biblioteca.notification.element) {
+                clearTimeout(biblioteca.notification.timer);
+                document.body.removeChild(biblioteca.notification.element);
+                biblioteca.notification.element = null;
+            }
+        }
+    
+    },
+    
     listar: (palavrasComduasAspasSeparadasPorVirgula) => {
 
         const newUl = document.createElement("ul")
@@ -230,7 +287,9 @@ window.biblioteca = {
         const field = document.createElement('div');
         field.classList.add('field');
         const labelContainer = document.createElement('div');
+        labelContainer.classList.add('label-container');
         const labelElement = document.createElement('label');
+        labelElement.classList.add('label-element');
         labelContainer.appendChild(labelElement);
         field.appendChild(labelContainer);
         labelElement.textContent = label +':';

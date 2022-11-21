@@ -1,0 +1,48 @@
+
+form{
+
+    width: 50rem;
+    flex-direction: column;
+    background-color: gray;
+    text-align: center;
+    margin-left: 10rem;
+    border-radius: 20px;
+}
+
+.field{
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    margin: 0.5rem;
+
+  
+}
+
+.field div {
+    display: flex;
+    margin: 25px, 25px, 25px, 25px;
+    justify-content:space-around;
+    align-items: baseline;
+    width: 60%;
+    height: 5rem;
+   
+
+}
+
+.label-container{
+    display: flex;
+    justify-content:space-around;
+    align-items: baseline;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  
+}
+
+.label-element{
+    color: blue;
+    text-align: center;
+    justify-content: center;
+}
+
+
