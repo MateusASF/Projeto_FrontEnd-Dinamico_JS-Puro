@@ -81,7 +81,7 @@
                 }),
 
                 biblioteca.createButton2 ({
-                    text: 'Cadastar',
+                    text: 'Cadastrar',
                     type: 'submit',
                     id: "data-btn-enviar",
                     onclick: onclick
@@ -120,6 +120,7 @@
              cep === ""||
              telefone === ""||
              email === ""){
+               // biblioteca.notification.create('Todos os dados são obrigatórios','text');
                  alert('Todos os dados são obrigatórios');
              }
 
@@ -138,7 +139,7 @@
                  }
                 }
 
-                 criarPost2(body)
+                 return criarPost2(body)
             }
          }
 
