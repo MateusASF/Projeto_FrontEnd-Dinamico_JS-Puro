@@ -15,7 +15,13 @@
         main.appendChild(
             biblioteca.header([
                 biblioteca.elementoHeader({
-                imgheader: '/img/logo.jpeg',
+                    imgheader: '/img/logo.jpeg',
+                    linkMenu: '#',
+                    sobre: './pages/sobre/sobre.html',
+                    listCat: './pages/categorias/listarCategoria.html',
+                    cadCat: './pages/categorias/cadastrarCategoria.html',
+                    listEst: '#',
+                    cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
                 })
             ]),
 

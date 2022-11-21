@@ -14,6 +14,20 @@
 
         document.body.appendChild(main);
 
+        main.appendChild(
+            biblioteca.header([
+                biblioteca.elementoHeader({
+                    imgheader: '/img/logo.jpeg',
+                    linkMenu: '../../index.html',
+                    listCat: './listarCategoria.html',
+                    cadCat: '#',
+                    listEst: '#',
+                    cadEst: '../estabelecimentos/estabelecimentosCadastrar.html'
+                })
+            ])
+        )
+
+
         const inputs = {
             codigo: biblioteca.input({
                 name: 'Código',

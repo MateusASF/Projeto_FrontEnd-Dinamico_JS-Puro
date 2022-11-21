@@ -153,9 +153,12 @@
             background: #ab956d;
             border-radius: 20px;
             text-align: center;
+            position: relative;
+            top: 10rem;
         }
         div.field {
             margin-bottom: 10px;
+            font-weight: bold;
         }
         div.actions {
             margin-top: 20px;
