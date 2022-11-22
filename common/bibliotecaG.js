@@ -38,6 +38,7 @@ window.biblioteca = {
     },
     div: (children) => {
         const div = document.createElement('div');
+        div.classList.add('divGeral')
         for (const child of children) {
             div.appendChild(child);
         }
@@ -384,7 +385,10 @@ window.biblioteca = {
         for (const child of children) {
             div.appendChild(child);
         }
-        return div;
+        const divGeral = document.getElementsByClassName('divGeral')[0]
+        divGeral.appendChild(div)
+
+        return divGeral;
     },
     listarCategoriaElemento: ({ nomeCategoria, linkA }) => {
         const divListarCategoria = document.createElement('div');
