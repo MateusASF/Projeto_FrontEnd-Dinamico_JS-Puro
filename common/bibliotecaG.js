@@ -412,7 +412,7 @@ window.biblioteca = {
         linkDelete.href = "#"
         linkEdit.href = "#"
 
-        linkDelete.addEventListener('click', onClick);
+        //linkDelete.addEventListener('click');
 
         // onClick: () => {
         //     fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category', {
@@ -506,6 +506,4 @@ window.biblioteca = {
 
         return array
     }
-
-   
 }
