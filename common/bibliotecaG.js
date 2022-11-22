@@ -337,11 +337,12 @@ window.biblioteca = {
         return input;
     },
 
-    createH1: (text, id) =>
+    createH1: (text, id, child) =>
     {
         const h1 = document.createElement('h1');
         h1.textContent = text;
         h1.setAttribute('id', id);
+        child.appendChild(h1);
         
         return h1;
 
