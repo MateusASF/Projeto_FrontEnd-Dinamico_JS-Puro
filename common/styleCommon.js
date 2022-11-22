@@ -198,6 +198,20 @@
         div.notification-warn {
             color: #a1a143;
         }
+
+        
+        .img-container{
+            position: relative;
+            width: cover;
+        }
+        
+        
+        .img-banner{
+        height:100vh;
+        width: 100%;
+        margin-top: 130px;
+
+        }
         `;
     document.body.appendChild(style);
 })();    
