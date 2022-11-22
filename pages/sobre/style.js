@@ -7,9 +7,6 @@
             display: flex;
             width: cover;
             background: #ab956d;
-            position: relative;
-            top: 10rem;
-            height: 80vh;
         }
 
         .cardResumeContainer {

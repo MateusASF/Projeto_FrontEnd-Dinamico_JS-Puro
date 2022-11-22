@@ -3,7 +3,6 @@
     style.innerHTML = `
         .divGeral {
             background: #ab956d;
-            position: relative;
             top: 13rem;
             margin: 0 10%;
             border-radius: 15px;
@@ -17,6 +16,7 @@
             border-radius: 15px;
             padding: 0 0 2rem 0;
             width: auto;
+            margin-bottom: 20px; 
         }
 
         .cardCategoriaLista span{

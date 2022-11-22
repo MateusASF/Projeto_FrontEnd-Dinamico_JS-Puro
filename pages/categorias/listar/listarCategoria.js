@@ -2,7 +2,8 @@
     for (const file of [
         '../../../common/bibliotecaG.js',
         '../../../common/styleCommon.js',
-        './listarCategoriaStyle.js'
+        './listarCategoriaStyle.js',
+        '../../../common/api.js' //! -> NÃO ESQUECER DISSO
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `${file}`);
@@ -29,7 +30,7 @@
                     listCat: '#',
                     cadCat: '../cadastrar/cadastrarCategoria.html',
                     listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
-                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentoCadastrar.html'
+                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentosCadastrar.html'
                 })
             ])
         )
@@ -101,5 +102,7 @@
                 ])
             ])
         );
+
+        biblioteca.footer2();
     });
 })();
