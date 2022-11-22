@@ -375,7 +375,6 @@ window.biblioteca = {
 
         return array
     },
-
     createBanner: () => {
         const indexContainner = document.createElement('div');
         indexContainner.classList.add('img-container');
@@ -388,8 +387,6 @@ window.biblioteca = {
         image.classList.add('img-banner');
         return image;
     },
-
-
     listarCategoriaDiv: (children) => {
         const div = document.createElement('div');
         div.classList.add('containerCards')
@@ -404,7 +401,7 @@ window.biblioteca = {
     listarCategoriaElemento: ({ nomeCategoria, uidCategoria }) => {
         const divListarCategoria = document.createElement('div');
         divListarCategoria.classList.add('cardCategoriaLista')
-
+        
         const linkDelete = document.createElement('a');
         const linkEdit = document.createElement('a');
 
@@ -415,57 +412,54 @@ window.biblioteca = {
 
         iconDelete.classList.add('material-icons')
         iconEdit.classList.add('material-icons')
-
+        
         iconDelete.textContent = 'delete';
         iconEdit.textContent = 'edit';
 
+
+        
         linkDelete.href = "#"
         linkEdit.href = "#"
 
-        //linkDelete.addEventListener('click');
+        linkDelete.setAttribute("id", uidCategoria)
 
-        // onClick: () => {
-        //     fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category', {
-        //         method: 'DELETE',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify({
-        //             uid: uidCategoria
-        //         })
-        //     }).then((response) => {
-        //         if (response.ok) {
-        //             alert('EXCLUIU')
-        //         }
-        //     }).catch((error) => {
-        //         alert('Erro geral na comunicação:')
-        //     }  
-        // )
+        linkDelete.addEventListener('click', biblioteca.deleteCategoria);
 
         linkDelete.appendChild(iconDelete)
         linkEdit.appendChild(iconEdit)
 
         spanCategoria.textContent = nomeCategoria;
-
-
+        
+        
         divListarCategoria.appendChild(spanCategoria);
         divListarCategoria.appendChild(linkDelete);
         divListarCategoria.appendChild(linkEdit);
-
+        
         return divListarCategoria;
+    },
+    deleteCategoria: async (event) => { 
+        //const idValue = document.getElementById(uid).id;
+
+        const idValue = event.path[1].id
+        console.log(idValue);
+        
+        await deleteCategoriaApi(idValue)
+
+        document.location.reload(true);
+
     },
     criaCardCategoria: (data) => {
         const array = [];
         for (i in data) {
             const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
             const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
-
+            
             const element = biblioteca.listarCategoriaElemento({
                 nomeCategoria: name,
                 uidCategoria: uid,
                 //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
             })
-
+            
             array.push(element)
         }
 
@@ -516,38 +510,36 @@ window.biblioteca = {
 
         return array
     },
-}
 
-async function footer2 () {
-    const categorias = await listCategory();
-    const estabelecimentos = await listEstablishment();
-
-    console.log(categorias)
-    console.log(estabelecimentos)
-
-    const footer = document.createElement('footer');
-    footer.classList.add('footerDiv')
-
-
-
-
-    categorias.forEach((item) => {
-        let contador = 0;
-        estabelecimentos.forEach((elemento) => {
-            if (elemento.category.uid === item.uid) {
-                contador++
-            }
+    footer2: async () => {
+        const categorias = await listCategory();
+        const estabelecimentos = await listEstablishment();
+    
+        console.log(categorias)
+        console.log(estabelecimentos)
+    
+        const footer = document.createElement('footer');
+        footer.classList.add('footerDiv')
+    
+        categorias.forEach((item) => {
+            let contador = 0;
+            estabelecimentos.forEach((elemento) => {
+                if (elemento.category.uid === item.uid) {
+                    contador++
+                }
+            })
+            const divElement = document.createElement('div')
+            const spanCategoria = document.createElement('span');
+            const link = document.createElement('a');
+    
+            link.textContent = `${item.name +" "+ contador}`
+    
+            link.setAttribute('href', "#");
+            spanCategoria.appendChild(link);
+            divElement.appendChild(spanCategoria)
+            footer.appendChild(divElement);
         })
-        const divElement = document.createElement('div')
-        const spanCategoria = document.createElement('span');
-        const link = document.createElement('a');
-
-        link.textContent = `${item.name +" "+ contador}`
-
-        link.setAttribute('href', "#");
-        spanCategoria.appendChild(link);
-        divElement.appendChild(spanCategoria)
-        footer.appendChild(divElement);
-    })
-    document.body.appendChild(footer);
+        document.body.appendChild(footer);
+    }
 }
+

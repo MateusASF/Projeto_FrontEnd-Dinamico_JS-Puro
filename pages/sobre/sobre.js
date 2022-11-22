@@ -43,7 +43,7 @@
             })
         ]))
 
-        window.footer2()
+        biblioteca.footer2()
 
         
         // main.appendChild(biblioteca.footer(

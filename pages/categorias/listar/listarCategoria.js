@@ -2,7 +2,8 @@
     for (const file of [
         '../../../common/bibliotecaG.js',
         '../../../common/styleCommon.js',
-        './listarCategoriaStyle.js'
+        './listarCategoriaStyle.js',
+        '../../../common/api.js' //! -> NÃO ESQUECER DESSE CARAIO
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `${file}`);
