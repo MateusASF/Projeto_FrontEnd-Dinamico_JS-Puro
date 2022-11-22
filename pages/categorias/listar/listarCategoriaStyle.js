@@ -1,12 +1,28 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
+        .divGeral {
+            background: #ab956d;
+            position: relative;
+            top: 13rem;
+            margin: 0 10%;
+            border-radius: 15px;
+        }
+
         .containerCards {
-            background: red;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ab956d;
+            border-radius: 15px;
+            padding: 0 0 2rem 0;
+            width: auto;
         }
 
         .cardCategoriaLista span a {
+            text-decoration: none;
             color: black;
+            font-size: 1.1rem;
         }
 
         @media(max-width: 1024px) and (min-width: 769px){

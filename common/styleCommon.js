@@ -149,11 +149,10 @@
         form {
             width: 600px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 20px 0 ;
             background: #ab956d;
             border-radius: 20px;
             text-align: center;
-            position: relative;
             top: 10rem;
         }
         div.field {
