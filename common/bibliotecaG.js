@@ -529,6 +529,7 @@ window.biblioteca = {
                 }
             })
             const divElement = document.createElement('div')
+            divElement.classList.add('cardCategoria')
             const spanCategoria = document.createElement('span');
             const link = document.createElement('a');
     

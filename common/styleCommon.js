@@ -3,6 +3,13 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
+        *{
+            border: 0;
+            margin: 0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+
         html, body {
             font-family: Arial;
             font-size: 1.4vw;
@@ -11,11 +18,17 @@
             color: #000;
             background: #f6f2f2;
         }
+
+        main {
+            min-height: 80vh;
+        }
+
         footer {
-            height: 30vh;
+            height: 20vh;
             background: #121842;
-            width: cover;
+            width: 100%;
             position: relative;
+            bottom: 0;
         }
 
         .cardMenu{
@@ -26,7 +39,6 @@
             justifyContent: center;
             height: auto;
             margin: .5rem;
-            // width: auto;
             width: 50vw;
             font-weight: bold;
             color: #121842 ;
@@ -46,7 +58,6 @@
 
         .cardCategoria p, span, a {
             margin: 0px 4px 0 2px ;
-            // font-size: 13px;
             font-size: 1vw;
             color: #f6f2f2;
         }
@@ -63,7 +74,8 @@
         header {
             height: 8rem; 
             background: #f6f2f2;
-            position: fixed;
+            position: relative;
+            top: 0
             z-index: 10;
         }
 
@@ -73,18 +85,19 @@
             justify-content: 'space-between',
             margin: 0;
             width: 100vw;
-            // position: fixed;
         }
 
         header img {
             width: 28vw;
-            position: fixed;
+            position: relative;
             top: 0;
             left: 0;
         }
 
         .img-banner {
             width: 100%;
+            margin: 0;
+            background: red;
         }
 
         header a {
@@ -204,13 +217,6 @@
             width: cover;
         }
         
-        
-        .img-banner{
-        height:100vh;
-        width: 100%;
-        margin-top: 130px;
-
-        }
         `;
     document.body.appendChild(style);
 })();    

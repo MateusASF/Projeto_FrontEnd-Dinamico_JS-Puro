@@ -24,7 +24,7 @@
                     listCat: '../listar/listarCategoria.html',
                     cadCat: '#',
                     listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
-                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentosListar.html'
+                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentosCadastrar.html'
                 })
             ])
         )
