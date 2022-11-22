@@ -348,15 +348,25 @@ window.biblioteca = {
         return h1;
 
     },
-    criaCard: (data, num) => {
+    criaCard: async (data) => {
+        const x = await teste();
+        console.log("Console X -> " + x)
+
         const array = [];
         for (i in data) {
             const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
+            const uidCategoria = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
+            const uidEstabelecimento = JSON.stringify(data2[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
+
+            let contagem = 0
+            if (uidCategoria === uidEstabelecimento) {
+                contagem++
+            }
 
             const element = biblioteca.elementoFooter({
                 nomeCategoria: name,
                 //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
-                quantidadeCategoria: num,
+                quantidadeCategoria: contagem,
                 linkA: '../index.html'
             })
 
@@ -505,5 +515,39 @@ window.biblioteca = {
         }
 
         return array
-    }
+    },
+}
+
+async function footer2 () {
+    const categorias = await listCategory();
+    const estabelecimentos = await listEstablishment();
+
+    console.log(categorias)
+    console.log(estabelecimentos)
+
+    const footer = document.createElement('footer');
+    footer.classList.add('footerDiv')
+
+
+
+
+    categorias.forEach((item) => {
+        let contador = 0;
+        estabelecimentos.forEach((elemento) => {
+            if (elemento.category.uid === item.uid) {
+                contador++
+            }
+        })
+        const divElement = document.createElement('div')
+        const spanCategoria = document.createElement('span');
+        const link = document.createElement('a');
+
+        link.textContent = `${item.name +" "+ contador}`
+
+        link.setAttribute('href', "#");
+        spanCategoria.appendChild(link);
+        divElement.appendChild(spanCategoria)
+        footer.appendChild(divElement);
+    })
+    document.body.appendChild(footer);
 }

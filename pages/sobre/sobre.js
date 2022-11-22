@@ -2,21 +2,23 @@
     const scriptStyle = document.createElement('script');
     const scriptStyleCommon = document.createElement('script');
     const scriptBiblioteca = document.createElement('script');
+    const scriptApi = document.createElement('script');
 
     scriptStyle.setAttribute('src', './style.js');
     scriptStyleCommon.setAttribute('src', '../../common/styleCommon.js');
     scriptBiblioteca.setAttribute('src', '../../common/bibliotecaG.js');
+    scriptApi.setAttribute('src', '../../common/api.js');
 
     document.body.appendChild(scriptStyle);
     document.body.appendChild(scriptStyleCommon);
     document.body.appendChild(scriptBiblioteca);
+    document.body.appendChild(scriptApi);
+
 
     window.addEventListener('load', () => {
 
         const main = document.createElement('main');
         document.body.appendChild(main);
-
-
 
         main.appendChild(
             biblioteca.header([
@@ -41,70 +43,15 @@
             })
         ]))
 
-        fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                text: '',
-                group: {
-                    uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
-                }
-            })
-        }).then((response) => {
-            if (response.ok) {
-                // alert('conectou com a API')
-                response.json().then((data) => {
-                    //for (i in data) {
-                        // const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
-                        // const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
+        window.footer2()
 
-                        // const num =  teste((JSON.stringify(data, ['uid']).replace(`{"uid":"`, "").replace(`"}`, ""))),
-                        // console.log(num),
-                            main.appendChild(biblioteca.footer(
-                                biblioteca.criaCard(data, 8)
-                            ));
-                    //}
-                });
-            }
-        }).catch((error) => {
-            alert('Erro geral na comunicação:')
-        });
+        
+        // main.appendChild(biblioteca.footer(
+        //     biblioteca.criaCard(data)
+        // ));
 
-
-        async function teste(id) {
-            console.log(id)
-            fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    "text": "",
-                    "category": {
-                        "uid": id
-                    },
-                    "group": {
-                        "uid": "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-                    }
-                })
-            }).then((response) => {
-                if (response.ok) {
-                    // alert('conectou com a API')
-                    const contagem = response.json().then((data) => {
-                        return data.length
-                    });
-                    return contagem
-                }
-
-            }).catch((error) => {
-                alert('Erro geral na comunicação:')
-            });
-        }
     })
 })();
-
 
 
 
