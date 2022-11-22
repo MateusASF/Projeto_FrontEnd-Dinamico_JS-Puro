@@ -3,7 +3,7 @@
     for (const file of [
         'common/bibliotecaG.js',
         'common/styleCommon.js',
-        'api.js'
+        'common/api.js'
         
     ]) {
         const script = document.createElement('script');
