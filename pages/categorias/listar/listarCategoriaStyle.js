@@ -19,10 +19,16 @@
             width: auto;
         }
 
-        .cardCategoriaLista span a {
-            text-decoration: none;
-            color: black;
+        .cardCategoriaLista span{
+            color: #121842;
             font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .material-icons {
+            font-size: 1.1rem;
+            margin: 0 7px;
+            color: #121842;
         }
 
         @media(max-width: 1024px) and (min-width: 769px){

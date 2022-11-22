@@ -9,10 +9,15 @@
         document.body.appendChild(script);
     }
 
+    const link = document.createElement('link')
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
+    document.body.appendChild(link);
+
+
     window.addEventListener('load', ()=> {
 
         const main = document.createElement('main');
-
         document.body.appendChild(main);
 
         main.appendChild(
@@ -76,11 +81,8 @@
                                             response.json().then((data) => {
                                             
                                                 main.appendChild(biblioteca.listarCategoriaDiv(
-                                                    biblioteca.criaCardCategoria(data)
-                                                ));
-                                                
-                                            });
-                                            
+                                                    biblioteca.criaCardCategoria(data)))
+                                        })
                                         } else {
                                             response.json().then((data) => {
                                                 biblioteca.notification.create({

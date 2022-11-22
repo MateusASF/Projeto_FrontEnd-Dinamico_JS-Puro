@@ -390,29 +390,69 @@ window.biblioteca = {
 
         return divGeral;
     },
-    listarCategoriaElemento: ({ nomeCategoria, linkA }) => {
+    listarCategoriaElemento: ({ nomeCategoria, uidCategoria }) => {
         const divListarCategoria = document.createElement('div');
         divListarCategoria.classList.add('cardCategoriaLista')
 
+        const linkDelete = document.createElement('a');
+        const linkEdit = document.createElement('a');
+
         const spanCategoria = document.createElement('span');
-        const link = document.createElement('a');
 
-        link.setAttribute('href', linkA);
-        spanCategoria.appendChild(link);
+        const iconDelete = document.createElement('i');
+        const iconEdit = document.createElement('i');
 
-        link.textContent = nomeCategoria;
+        iconDelete.classList.add('material-icons')
+        iconEdit.classList.add('material-icons')
+
+        iconDelete.textContent = 'delete';
+        iconEdit.textContent = 'edit';
+
+        linkDelete.href = "#"
+        linkEdit.href = "#"
+
+        linkDelete.addEventListener('click', onClick);
+
+        // onClick: () => {
+        //     fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category', {
+        //         method: 'DELETE',
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({
+        //             uid: uidCategoria
+        //         })
+        //     }).then((response) => {
+        //         if (response.ok) {
+        //             alert('EXCLUIU')
+        //         }
+        //     }).catch((error) => {
+        //         alert('Erro geral na comunicação:')
+        //     }  
+        // )
+
+        linkDelete.appendChild(iconDelete)
+        linkEdit.appendChild(iconEdit)
+
+        spanCategoria.textContent = nomeCategoria;
+
+
         divListarCategoria.appendChild(spanCategoria);
+        divListarCategoria.appendChild(linkDelete);
+        divListarCategoria.appendChild(linkEdit);
+
         return divListarCategoria;
     },
     criaCardCategoria: (data) => {
         const array = [];
         for (i in data) {
             const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
+            const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
 
             const element = biblioteca.listarCategoriaElemento({
                 nomeCategoria: name,
+                uidCategoria: uid,
                 //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
-                linkA: '../index.html'
             })
 
             array.push(element)
