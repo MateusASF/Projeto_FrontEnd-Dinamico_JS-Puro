@@ -8,11 +8,11 @@
             biblioteca.header([
                 biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
-                    linkMenu: '#',
-                    sobre: './pages/sobre/sobre.html',
-                    listCat: './pages/categorias/listarCategoria.html',
-                    cadCat: './pages/categorias/cadastrarCategoria.html',
-                    listEst: '#',
+                    linkMenu: '../../../index.html',
+                    sobre: '../../sobre/sobre.html',
+                    listCat: '../../categorias/listar/listarCategoria.html',
+                    cadCat: '../../categorias/cadastrar/cadastrarCategoria.html',
+                    listEst: '../listar/estabelecimentoListar.html',
                     cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
                 })
             ]) 

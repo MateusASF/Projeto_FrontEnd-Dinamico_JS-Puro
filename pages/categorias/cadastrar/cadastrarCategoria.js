@@ -1,7 +1,8 @@
 (() => {
     for (const file of [
         'common/bibliotecaG.js',
-        'common/styleCommon.js'
+        'common/styleCommon.js',
+        'common/api.js'
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `../../../${file}`);
@@ -23,7 +24,7 @@
                     listCat: '../listar/listarCategoria.html',
                     cadCat: '#',
                     listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
-                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentoListar.html'
+                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentosListar.html'
                 })
             ])
         )
@@ -115,5 +116,6 @@
             ])
         );
 
+        biblioteca.footer2();
     });
 })();

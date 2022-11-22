@@ -2,6 +2,7 @@
     for (const file of [
         '../../../common/bibliotecaG.js',
         '../../../common/styleCommon.js',
+        '../../../common/api.js',
         './estabelecimentoListarStyle.js'
     ]) {
         const script = document.createElement('script');
@@ -23,8 +24,8 @@
                     sobre: '../../sobre/sobre.html',
                     listCat: '../../categorias/listar/listarCategoria.html',
                     cadCat: '../../categorias/cadastrar/cadastrarCategoria.html',
-                    listEst: '#',
-                    cadEst: '../listar/estabelecimentoListar.html'
+                    cadEst: '../cadastrar/estabelecimentosCadastrar.html',
+                    listEst: '#'
                 })
             ])
         )
@@ -114,5 +115,7 @@
                 ])
             ])
         );
+
+        biblioteca.footer2();
     });
 })();

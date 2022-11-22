@@ -1,7 +1,8 @@
 (() => {
     for (const file of [
         'bibliotecaG.js',
-        'styleCommon.js'
+        'styleCommon.js',
+        'api.js'
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `./common/${file}`);
@@ -28,35 +29,7 @@
 
         main.appendChild(biblioteca.createBanner())
 
-
-
-        fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                text: 'string',
-                group: {
-                    uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
-                }
-            })
-        }).then((response) => {
-            if (response.ok) {
-                // for (child of response) {}
-                //alert('conectou com a API')
-                //response.json().then(() => {});
-                main.appendChild(biblioteca.footer([
-                    biblioteca.elementoFooter({
-                        nomeCategoria: 'teste',
-                        quantidadeCategoria: 5,
-                        linkA: '../index.html'
-                        })
-                ]));
-            }
-        }).catch((error) => {
-            alert('Erro geral na comunicação:')
-        });       
+        biblioteca.footer2() 
     });
 })();
 
