@@ -10,7 +10,7 @@
         document.body.appendChild(script);
     }
 
-    window.addEventListener('load', ()=> {
+    window.addEventListener('load', () => {
 
         const main = document.createElement('main');
 
@@ -29,7 +29,7 @@
                 })
             ])
         )
-        
+
 
         const inputs = {
             busca: biblioteca.input({
@@ -72,42 +72,42 @@
                                 if (remover !== undefined) {
                                     main.removeChild(remover)
                                 }
-                                    fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
-                                        method: 'POST',
-                                        headers: {
-                                            "Content-Type": "application/json"
+                                fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
+                                    method: 'POST',
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        text: inputs.busca.value,
+                                        category: {
+                                            uid: inputs.categoria.value
                                         },
-                                        body: JSON.stringify({
-                                            text: inputs.busca.value,
-                                            category: {
-                                              uid: "0e85479d-3d8f-483f-990c-cf24332d54f8" //foi fixado para teste
-                                            },
-                                            group: {
-                                              uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-                                            }
-                                          }
-                                        )
-                                    }).then((response) => {
-                                        if (response.ok) {
-                                            response.json().then((data) => {
-                                            
-                                                main.appendChild(biblioteca.listarEstabelecimentoDiv(
-                                                    biblioteca.criaCardEstabelecimento(data)
-                                                ));
-                                                
-                                            });
-                                            
-                                        } else {
-                                            response.json().then((data) => {
-                                                biblioteca.notification.create({
-                                                    text: JSON.stringify(data),
-                                                    type: 'error'
-                                                });
-                                            });
+                                        group: {
+                                            uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
                                         }
-                                    }).catch((error) => {
-                                        console.log('Erro geral na comunicação:', error);
-                                    });
+                                    }
+                                    )
+                                }).then((response) => {
+                                    if (response.ok) {
+                                        response.json().then((data) => {
+
+                                            main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                                                biblioteca.criaCardEstabelecimento(data)
+                                            ));
+
+                                        });
+
+                                    } else {
+                                        response.json().then((data) => {
+                                            biblioteca.notification.create({
+                                                text: JSON.stringify(data),
+                                                type: 'error'
+                                            });
+                                        });
+                                    }
+                                }).catch((error) => {
+                                    console.log('Erro geral na comunicação:', error);
+                                });
 
                             }
                         })
