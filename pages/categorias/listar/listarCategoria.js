@@ -93,18 +93,7 @@
                                     }).catch((error) => {
                                         console.log('Erro geral na comunicação:', error);
                                     });
-                                // if (inputs.codigo.value == '') {
-                                //     return biblioteca.notification.create({
-                                //         text: 'Código inválido.',
-                                //         type: 'error'
-                                //     });
-                                // }
-                                // if (inputs.nome.value == '') {
-                                //     return biblioteca.notification.create({
-                                //         text: 'Nome inválido.',
-                                //         type: 'error'
-                                //     });
-                                // }
+
                             }
                         })
                     ])
