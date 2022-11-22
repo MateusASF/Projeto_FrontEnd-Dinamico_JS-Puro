@@ -57,9 +57,8 @@
                             type: 'primary',
                             onClick: () => {
                                 const remover = document.getElementsByClassName('containerCards')[0]
-                                console.log(remover)
                                 if (remover !== undefined) {
-                                    main.removeChild(remover)
+                                    remover.remove()
                                 }
                                     fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
                                         method: 'POST',

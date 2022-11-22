@@ -38,6 +38,7 @@ window.biblioteca = {
     },
     div: (children) => {
         const div = document.createElement('div');
+        div.classList.add('divGeral')
         for (const child of children) {
             div.appendChild(child);
         }
@@ -337,11 +338,12 @@ window.biblioteca = {
         return input;
     },
 
-    createH1: (text, id) =>
+    createH1: (text, id, child) =>
     {
         const h1 = document.createElement('h1');
         h1.textContent = text;
         h1.setAttribute('id', id);
+        child.appendChild(h1);
         
         return h1;
 
@@ -384,7 +386,10 @@ window.biblioteca = {
         for (const child of children) {
             div.appendChild(child);
         }
-        return div;
+        const divGeral = document.getElementsByClassName('divGeral')[0]
+        divGeral.appendChild(div)
+
+        return divGeral;
     },
     listarCategoriaElemento: ({ nomeCategoria, linkA }) => {
         const divListarCategoria = document.createElement('div');
