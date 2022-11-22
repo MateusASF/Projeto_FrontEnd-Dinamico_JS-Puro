@@ -83,6 +83,10 @@
             left: 0;
         }
 
+        .img-banner {
+            width: 100%;
+        }
+
         header a {
             font-size: 2vw;
             text-decoration: none;
