@@ -92,7 +92,7 @@ window.cadastro = {
 
     // }
 
-}
+//}
 
 
 function checarDados2(dados){
