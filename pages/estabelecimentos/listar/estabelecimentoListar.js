@@ -19,10 +19,11 @@
                 biblioteca.elementoHeader({
                     imgheader: '/img/logo.jpeg',
                     linkMenu: '../../../index.html',
-                    listCat: '../listar/listarCategoria.html',
-                    cadCat: '#',
-                    listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
-                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentoListar.html'
+                    sobre: '../../sobre/sobre.html',
+                    listCat: '../../categorias/listar/listarCategoria.html',
+                    cadCat: '../../categorias/cadastrar/cadastrarCategoria.html',
+                    listEst: '#',
+                    cadEst: '../listar/estabelecimentoListar.html'
                 })
             ])
         )

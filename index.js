@@ -18,10 +18,10 @@
                     imgheader: '/img/logo.jpeg',
                     linkMenu: '#',
                     sobre: './pages/sobre/sobre.html',
-                    listCat: './pages/categorias/listarCategoria.html',
-                    cadCat: './pages/categorias/cadastrarCategoria.html',
-                    listEst: '#',
-                    cadEst: './pages/estabelecimentos/estabelecimentosCadastrar.html'
+                    listCat: './pages/categorias/listar/listarCategoria.html',
+                    cadCat: './pages/categorias/cadastrar/cadastrarCategoria.html',
+                    listEst: './pages/estabelecimentos/listar/estabelecimentoListar.html',
+                    cadEst: './pages/estabelecimentos/cadastrar/estabelecimentosCadastrar.html'
                 })
             ]) 
         )
