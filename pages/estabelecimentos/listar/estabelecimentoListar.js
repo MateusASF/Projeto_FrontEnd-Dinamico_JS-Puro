@@ -1,10 +1,11 @@
 (() => {
     for (const file of [
-        'common/bibliotecaG.js',
-        'common/styleCommon.js'
+        '../../../common/bibliotecaG.js',
+        '../../../common/styleCommon.js',
+        './estabelecimentoListarStyle.js'
     ]) {
         const script = document.createElement('script');
-        script.setAttribute('src', `../../../${file}`);
+        script.setAttribute('src', `${file}`);
         document.body.appendChild(script);
     }
 
@@ -27,5 +28,91 @@
                 })
             ])
         )
-    })
+        
+
+        const inputs = {
+            busca: biblioteca.input({
+                name: 'busca',
+                onKeyPress: () => {
+                    biblioteca.notification.remove();
+                }
+            }),
+            categoria: biblioteca.input({
+                name: 'categoria',
+                onKeyPress: () => {
+                    biblioteca.notification.remove();
+                }
+            })
+        }
+
+        main.appendChild(
+            biblioteca.div([
+                biblioteca.form([
+                    biblioteca.field({
+                        label: 'Busca',
+                        input: inputs.busca
+                    }),
+                    biblioteca.field({
+                        label: 'Categoria',
+                        input: inputs.categoria
+                    }),
+                    biblioteca.actions([
+                        biblioteca.button({
+                            text: 'Voltar',
+                            onClick: () => {
+                            }
+                        }),
+                        biblioteca.button({
+                            text: 'Buscar',
+                            type: 'primary',
+                            onClick: () => {
+                                const remover = document.getElementsByClassName('containerCards')[0]
+                                console.log(remover)
+                                if (remover !== undefined) {
+                                    main.removeChild(remover)
+                                }
+                                    fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
+                                        method: 'POST',
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify({
+                                            text: inputs.busca.value,
+                                            category: {
+                                              uid: "0e85479d-3d8f-483f-990c-cf24332d54f8" //foi fixado para teste
+                                            },
+                                            group: {
+                                              uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                                            }
+                                          }
+                                        )
+                                    }).then((response) => {
+                                        if (response.ok) {
+                                            response.json().then((data) => {
+                                            
+                                                main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                                                    biblioteca.criaCardEstabelecimento(data)
+                                                ));
+                                                
+                                            });
+                                            
+                                        } else {
+                                            response.json().then((data) => {
+                                                biblioteca.notification.create({
+                                                    text: JSON.stringify(data),
+                                                    type: 'error'
+                                                });
+                                            });
+                                        }
+                                    }).catch((error) => {
+                                        console.log('Erro geral na comunicação:', error);
+                                    });
+
+                            }
+                        })
+                    ])
+                ])
+            ])
+        );
+    });
 })();

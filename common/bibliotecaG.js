@@ -338,11 +338,12 @@ window.biblioteca = {
         return input;
     },
 
-    createH1: (text, id) =>
+    createH1: (text, id, child) =>
     {
         const h1 = document.createElement('h1');
         h1.textContent = text;
         h1.setAttribute('id', id);
+        child.appendChild(h1);
         
         return h1;
 
@@ -460,4 +461,51 @@ window.biblioteca = {
 
         return array
     },
+
+    listarEstabelecimentoDiv: (children) => {
+        const div = document.createElement('div');
+        div.classList.add('containerCards')
+        for (const child of children) {
+            div.appendChild(child);
+        }
+        return div;
+    },
+    listarEstabelecimentoElemento: (nomeEst, enderecoEst, postalCodeEst, emailEst, foneEst) => {
+        const divListarEstabelecimento = document.createElement('div');
+        divListarEstabelecimento.classList.add('cardCategoriaLista')
+
+        const spanEstabelecimento = document.createElement('span');
+        const hNome = document.createElement('h3');
+        const pEnd = document.createElement('p');
+        const pContact = document.createElement('p');
+
+        spanEstabelecimento.appendChild(hNome);
+        spanEstabelecimento.appendChild(pEnd);
+        spanEstabelecimento.appendChild(pContact);
+
+        hNome.textContent =  "Nome: " + nomeEst;
+        pEnd.textContent = "Endereço: " + enderecoEst + ", código Postal: " + postalCodeEst;
+        pContact.textContent = "e-mail: " + emailEst + ", telefone: " + foneEst;
+
+        divListarEstabelecimento.appendChild(spanEstabelecimento);
+        return divListarEstabelecimento;
+    },
+    criaCardEstabelecimento: (data) => {
+        const array = [];
+        for (i in data) {
+            const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "");
+            const address = JSON.stringify(data[i], ['address']).replace(`{"address":"`, "").replace(`"}`, "")
+            const postalCode = JSON.stringify(data[i], ['postal_code']).replace(`{"postal_code":"`, "").replace(`"}`, "")
+            const email = JSON.stringify(data[i], ['email']).replace(`{"email":"`, "").replace(`"}`, "")
+            const phone = JSON.stringify(data[i], ['phone']).replace(`{"phone":"`, "").replace(`"}`, "")
+
+            const element = biblioteca.listarEstabelecimentoElemento(name, address, postalCode, email, phone)
+                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves            )
+            array.push(element)
+        }
+
+        return array
+    }
+
+   
 }

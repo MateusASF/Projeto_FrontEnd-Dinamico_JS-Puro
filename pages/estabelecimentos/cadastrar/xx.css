@@ -70,6 +70,7 @@ font-style: italic;
 }
 
 h1{
+    position: relative;
     text-align: center;
     color: rgb(10, 29, 116);
 
@@ -86,6 +87,27 @@ h1{
   font-weight:600;
   border-radius: 10px;
   border-width: 0.1rem;
+}
+
+main{
+    position: relative;
+}
+
+.form{
+
+}
+
+
+.form-container{
+    position: relative;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    margin-top: 160px;
+    
+
+
 }
 
 

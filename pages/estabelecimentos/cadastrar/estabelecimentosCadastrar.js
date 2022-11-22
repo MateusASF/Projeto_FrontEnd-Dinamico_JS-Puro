@@ -18,6 +18,8 @@
             ]) 
         )
 
+
+
         const input = {
 
             categoria: biblioteca.createInput2({
@@ -61,14 +63,21 @@
             })  
         }
 
-        main.appendChild(
+        const formContainer = biblioteca.createDiv('form-container');
+        const h1 = biblioteca.createH1('Cadastre seu  estabelecimento','data-h1', formContainer);
+    
 
-            biblioteca.createH1('Cadastre seu  estabelecimento','data-h1')
-        )
 
-       main.appendChild(
+        
+
+        main.appendChild(formContainer)
+
+        formContainer.appendChild(
+
 
            biblioteca.createForm2([
+
+
                 biblioteca.createField2({
                     label: "Categoria",
                     input: input.categoria,
