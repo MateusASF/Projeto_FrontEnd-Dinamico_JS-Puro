@@ -3,7 +3,7 @@
     for (const file of [
         'common/bibliotecaG.js',
         'common/styleCommon.js',
-        'api.js'
+        'common/api.js'
         
     ]) {
         const script = document.createElement('script');
@@ -143,50 +143,51 @@
                 telefone = document.getElementById('data-telefone').value,
                 email = document.getElementById('data-email').value
 
-               // api.postEstab(endereco, telefone, nome, categoria, cep, email)
+               //api.postEstab(endereco, telefone, nome, categoria, cep, email)
+               //ou
 
 
-        //         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
-        //         method: 'POST',
-        //         mode: 'no-cors',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify({
-        //             address : endereco,
-        //             phone : telefone,
-        //             name : nome,
-        //             category: {
-        //                 uid: categoria
-        //               },
-        //             postal_code : cep,
-        //             email : email,
-        //             group: {
-        //                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-        //             }
-        //         })
-        //     }).then((response) => {
-        //         if (response.ok) {
-        //             response.json().then((data) => {
-        //                 biblioteca.notification.create({
-        //                     text: JSON.stringify(data),
-        //                     type: 'success'
-        //                 });
-        //             });
-        //         } else {
-        //             response.json().then((data) => {
-        //                 biblioteca.notification.create({
-        //                     text: JSON.stringify(data),
-        //                     type: 'error'
-        //                 });
-        //             });
-        //         }
-        //     }).catch((error) => {
-        //         console.log('Erro geral na comunicação:', error);
-        //     });
+                fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    address : endereco,
+                    phone : telefone,
+                    name : nome,
+                    category: {
+                        uid: categoria
+                      },
+                    postal_code : cep,
+                    email : email,
+                    group: {
+                        uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                    }
+                })
+            }).then((response) => {
+                if (response.ok) {
+                    response.json().then((data) => {
+                        biblioteca.notification.create({
+                            text: JSON.stringify(data),
+                            type: 'success'
+                        });
+                    });
+                } else {
+                    response.json().then((data) => {
+                        biblioteca.notification.create({
+                            text: JSON.stringify(data),
+                            type: 'error'
+                        });
+                    });
+                }
+            }).catch((error) => {
+                console.log('Erro geral na comunicação:', error);
+            });
          })
 
-       biblioteca.footer2();
+      // biblioteca.footer2();
     });
 })();
 
