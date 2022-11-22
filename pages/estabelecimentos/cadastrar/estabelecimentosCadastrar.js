@@ -1,13 +1,20 @@
-        
+
 (() => {
     for (const file of [
         'common/bibliotecaG.js',
-        'common/styleCommon.js'
+        'common/styleCommon.js',
+        'api.js'
+        
     ]) {
         const script = document.createElement('script');
         script.setAttribute('src', `../../../${file}`);
         document.body.appendChild(script);
+        
     }
+
+    const script2 = document.createElement('script');
+        script2.setAttribute('src', './style.js');
+        document.body.appendChild(script2);
 
     window.addEventListener('load', ()=> {
 
@@ -37,7 +44,7 @@
                 placeholder: "",
                 name: "categoria",
                 id: "data-categoria"
-                
+
 
             }),
             nome: biblioteca.createInput2({
@@ -45,13 +52,13 @@
                 name: 'nome',
                 placeholder: "",
                 id: "data-nome"
-            }), 
+            }),
             endereco: biblioteca.createInput2({
                 type: 'text',
                 name: 'endereco',
                 placeholder: "",
                 id: "data-endereco"
-            }), 
+            }),
             cep: biblioteca.createInput2({
                 type: 'text',
                 name: 'cep',
@@ -64,20 +71,20 @@
                 name: 'telefone',
                 placeholder: "(xx) xxxxx-xxxx",
                 id: "data-telefone"
-            }),  
+            }),
             email: biblioteca.createInput2({
                 type: 'email',
                 name: 'email',
                 placeholder: "xxx@xxxx.com",
                 id: "data-email"
-            })  
+            })
         }
 
         const formContainer = biblioteca.createDiv('form-container');
 
         const h1 = biblioteca.createH1('Cadastre seu  estabelecimento','data-h1', formContainer);
-    
-      
+
+
         main.appendChild(formContainer);
 
         formContainer.appendChild(
@@ -115,10 +122,10 @@
                     type: 'submit',
                     id: "data-btn-enviar",
                     onclick: onclick
-                    
+
                 }),
-           ]),          
-           
+           ]),
+
         );
 
 
@@ -127,8 +134,8 @@
 
         formCadastrar.addEventListener('submit', (evento) => {
             evento.preventDefault();
-            
-            
+
+
                 categoria = document.getElementById('data-categoria').value,
                 nome = document.getElementById('data-nome').value,
                 endereco = document.getElementById('data-endereco').value,
@@ -136,153 +143,56 @@
                 telefone = document.getElementById('data-telefone').value,
                 email = document.getElementById('data-email').value
 
-            
-                fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    address : endereco,
-                    phone : telefone,
-                    name : nome,
-                    category: categoria,
-                    postal : cep,
-                    email : email,
-                    group: {
-                        uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-                    }
-                })
-            }).then((response) => {
-                if (response.ok) {
-                    response.json().then((data) => {
-                        biblioteca.notification.create({
-                            text: JSON.stringify(data),
-                            type: 'success'
-                        });
-                    });
-                } else {
-                    response.json().then((data) => {
-                        biblioteca.notification.create({
-                            text: JSON.stringify(data),
-                            type: 'error'
-                        });
-                    });
-                }
-            }).catch((error) => {
-                console.log('Erro geral na comunicação:', error);
-            });
-        })
+               // api.postEstab(endereco, telefone, nome, categoria, cep, email)
+
+
+        //         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+        //         method: 'POST',
+        //         mode: 'no-cors',
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({
+        //             address : endereco,
+        //             phone : telefone,
+        //             name : nome,
+        //             category: {
+        //                 uid: categoria
+        //               },
+        //             postal_code : cep,
+        //             email : email,
+        //             group: {
+        //                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+        //             }
+        //         })
+        //     }).then((response) => {
+        //         if (response.ok) {
+        //             response.json().then((data) => {
+        //                 biblioteca.notification.create({
+        //                     text: JSON.stringify(data),
+        //                     type: 'success'
+        //                 });
+        //             });
+        //         } else {
+        //             response.json().then((data) => {
+        //                 biblioteca.notification.create({
+        //                     text: JSON.stringify(data),
+        //                     type: 'error'
+        //                 });
+        //             });
+        //         }
+        //     }).catch((error) => {
+        //         console.log('Erro geral na comunicação:', error);
+        //     });
+         })
+
+       biblioteca.footer2();
     });
 })();
 
-            
+            //0e85479d-3d8f-483f-990c-cf24332d54f8
 
-            // API.request({
-            //     service: 'establishment',
-            //     method: 'post',
-            //     data: {
-            //                     address : dados.endereco.value,
-            //                     phone : dados.telefone.value,
-            //                     name : dados.nome.value,
-            //                     category: dados.categoria.value,
-            //                     postal : dados.cep.value,
-            //                     email : dados.email.value,
-            //                     group: {
-            //                         uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
-            //                     }
-                               
-            //     },
-            //     onSuccess: (data, response) => {
-            //        debugger;
-            //         biblioteca.notification.create({
-            //             text: 'Conta cadastrada com sucesso.',
-            //             type: 'success'
-            //         });
-            //     },
-            //     onError: (data, response) => {
-            //        debugger;
-            //         biblioteca.notification.create({
-            //             text: "Não foi possível criar a conta, tente mais tarde.",
-            //             type: 'error'
-            //         });
-            //     }
-            // });
-
-            //cadastro.criarEstab2();
         
 
-    //     ObterListaCategoria();
-       
-    //     // data: {
-    //     //     'address' : dados.endereco.value,
-    //     //     'phone' : dados.telefone.value,
-    //     //     'name' : dados.nome.value,
-    //     //     'category': dados.categoria.value,
-    //     //     'postal-code' : dados.cep.value,
-    //     //     'email' : dados.email.value,
-    //     //     'group': {
-    //     //         'uid': '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
-    //     //     }
 
-    //     function ObterListaCategoria () {
-    //         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({
-    //             text: 'string',
-    //             group: {
-    //                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-    //             }
-    //         })
-    //     }).then((response) => {
-    //         if (response.ok) {
-    //             response.json().then((data) => {
-    //                 console.log(response)
-    //                 console.log(data)
-    //                 criarLista(data);
-    //                 //main.appendChild(biblioteca.listarCategoriaDiv(
-    //                  //   biblioteca.criaCardCategoria(data)))
-    //         })
-    //         } else {
-    //             response.json().then((data) => {
-    //                 biblioteca.notification.create({
-    //                     text: JSON.stringify(data),
-    //                     type: 'error'
-    //                 });
-    //             });
-    //         }
-    //     }).catch((error) => {
-    //         console.log('Erro geral na comunicação:', error);
-    //     })
-    // }
-
-    // function criarLista(data) {
-
-    //     const array = [];
-    //     for (i in data) {
-    //         const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
-    //         const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
-
-    //         const element = biblioteca.listarCategoriaElemento({
-    //             nomeCategoria: name,
-    //             uidCategoria: uid,
-    //             //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
-    //         })
-
-    //         array.push(element)
-    //     }
-
-    //     return array
-
-
-    // }
-
-    
-
-
-
-    
 

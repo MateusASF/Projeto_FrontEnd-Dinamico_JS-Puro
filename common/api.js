@@ -64,3 +64,28 @@
         )
     }
 
+    window.postEstab = async function (endereco, telefone, nome, categoria, cep, email) {
+        const y = await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                address : endereco,
+                    phone : telefone,
+                    name : nome,
+                    category: {
+                        uid: categoria
+                      },
+                    postal_code : cep,
+                    email : email,
+                    group: {
+                        uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                    }
+            })
+        }).catch((error) => {
+            alert('Erro geral na comunicação:')
+        })
+
+    }
+
