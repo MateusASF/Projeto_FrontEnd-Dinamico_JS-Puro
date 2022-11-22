@@ -374,11 +374,46 @@ window.biblioteca = {
         image.src = './img/banner2.PNG'; 
         containerImg.appendChild(image);
         image.classList.add('img-banner');
-
-
         return image;
+    },
 
 
+    listarCategoriaDiv: (children) => {
+        const div = document.createElement('div');
+        div.classList.add('containerCards')
+        for (const child of children) {
+            div.appendChild(child);
+        }
+        return div;
+    },
+    listarCategoriaElemento: ({ nomeCategoria, linkA }) => {
+        const divListarCategoria = document.createElement('div');
+        divListarCategoria.classList.add('cardCategoriaLista')
 
-    }
+        const spanCategoria = document.createElement('span');
+        const link = document.createElement('a');
+
+        link.setAttribute('href', linkA);
+        spanCategoria.appendChild(link);
+
+        link.textContent = nomeCategoria;
+        divListarCategoria.appendChild(spanCategoria);
+        return divListarCategoria;
+    },
+    criaCardCategoria: (data) => {
+        const array = [];
+        for (i in data) {
+            const name = JSON.stringify(data[i], ['name']).replace(`{"name":"`, "").replace(`"}`, "")
+
+            const element = biblioteca.listarCategoriaElemento({
+                nomeCategoria: name,
+                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
+                linkA: '../index.html'
+            })
+
+            array.push(element)
+        }
+
+        return array
+    },
 }

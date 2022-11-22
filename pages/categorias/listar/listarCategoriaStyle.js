@@ -1,7 +1,13 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
-        
+        .containerCards {
+            background: red;
+        }
+
+        .cardCategoriaLista span a {
+            color: black;
+        }
 
         @media(max-width: 1024px) and (min-width: 769px){
 

@@ -1,10 +1,11 @@
 (() => {
     for (const file of [
-        'common/bibliotecaG.js',
-        'common/styleCommon.js'
+        '../../../common/bibliotecaG.js',
+        '../../../common/styleCommon.js',
+        './listarCategoriaStyle.js'
     ]) {
         const script = document.createElement('script');
-        script.setAttribute('src', `../../../${file}`);
+        script.setAttribute('src', `${file}`);
         document.body.appendChild(script);
     }
 
@@ -37,6 +38,7 @@
                 }
             })
         }
+
         main.appendChild(
             biblioteca.div([
                 biblioteca.form([
@@ -54,7 +56,43 @@
                             text: 'Buscar',
                             type: 'primary',
                             onClick: () => {
-                                biblioteca.notification.remove();
+                                const remover = document.getElementsByClassName('containerCards')[0]
+                                console.log(remover)
+                                if (remover !== undefined) {
+                                    main.removeChild(remover)
+                                }
+                                    fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
+                                        method: 'POST',
+                                        headers: {
+                                            "Content-Type": "application/json"
+                                        },
+                                        body: JSON.stringify({
+                                            text: inputs.busca.value,
+                                            group: {
+                                                uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                                            }
+                                        })
+                                    }).then((response) => {
+                                        if (response.ok) {
+                                            response.json().then((data) => {
+                                            
+                                                main.appendChild(biblioteca.listarCategoriaDiv(
+                                                    biblioteca.criaCardCategoria(data)
+                                                ));
+                                                
+                                            });
+                                            
+                                        } else {
+                                            response.json().then((data) => {
+                                                biblioteca.notification.create({
+                                                    text: JSON.stringify(data),
+                                                    type: 'error'
+                                                });
+                                            });
+                                        }
+                                    }).catch((error) => {
+                                        console.log('Erro geral na comunicação:', error);
+                                    });
                                 // if (inputs.codigo.value == '') {
                                 //     return biblioteca.notification.create({
                                 //         text: 'Código inválido.',
@@ -67,39 +105,6 @@
                                 //         type: 'error'
                                 //     });
                                 // }
-                                fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-                                    method: 'POST',
-                                    headers: {
-                                        "Content-Type": "application/json"
-                                    },
-                                    body: JSON.stringify({
-                                        text: inputs.busca.value,
-                                        group: {
-                                            uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-                                        }
-                                    })
-                                }).then((response) => {
-                                    if (response.ok) {
-                                        response.json().then((data) => {
-                                         
-                                            biblioteca.notification.create({
-                                                text: JSON.stringify(data),
-                                                type: 'success'
-                                            });
-                                            
-                                        });
-                                        
-                                    } else {
-                                        response.json().then((data) => {
-                                            biblioteca.notification.create({
-                                                text: JSON.stringify(data),
-                                                type: 'error'
-                                            });
-                                        });
-                                    }
-                                }).catch((error) => {
-                                    console.log('Erro geral na comunicação:', error);
-                                });
                             }
                         })
                     ])
