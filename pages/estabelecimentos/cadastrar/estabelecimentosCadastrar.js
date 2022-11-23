@@ -117,79 +117,121 @@
                     input: input.email,
                 }),
 
-                biblioteca.createButton2 ({
+                biblioteca.button({
                     text: 'Cadastrar',
-                    type: 'submit',
-                    id: "data-btn-enviar",
-                    onclick: onclick
+                    type: 'primary',
+                    onClick: () => {
+                        biblioteca.notification.remove();
+                        // if (input.codigo.value == '') {
+                        //     return biblioteca.notification.create({
+                        //         text: 'Código inválido.',
+                        //         type: 'error'
+                        //     });
+                        // }
+                        // if (input.nome.value == '') {
+                        //     return biblioteca.notification.create({
+                        //         text: 'Nome inválido.',
+                        //         type: 'error'
+                        //     });
+                       // }
 
-                }),
-           ]),
+                       
+                        fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+                            method: 'POST',
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                    
+                                            address : input.endereco.value,
+                                            phone : input.telefone.value,
+                                            name : input.nome.value,
+                                            category: {
+                                                uid: '0e85479d-3d8f-483f-990c-cf24332d54f8'
+                                              },
+                                            
+                                            postal_code : input.cep.value,
+                                            email : input.email.value,
+                                            group: {
+                                                uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                                            },
 
-        );
-
-
-
-        const formCadastrar = document.querySelector('form');
-
-        formCadastrar.addEventListener('submit', (evento) => {
-            evento.preventDefault();
-
-
-                categoria = document.getElementById('data-categoria').value,
-                nome = document.getElementById('data-nome').value,
-                endereco = document.getElementById('data-endereco').value,
-                cep = document.getElementById('data-cep').value,
-                telefone = document.getElementById('data-telefone').value,
-                email = document.getElementById('data-email').value
-
-               //api.postEstab(endereco, telefone, nome, categoria, cep, email)
-               //ou
-
-
-                fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    address : endereco,
-                    phone : telefone,
-                    name : nome,
-                    category: {
-                        uid: categoria
-                      },
-                    postal_code : cep,
-                    email : email,
-                    group: {
-                        uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                                          
+                                        })
+                        }).then((response) => {
+                            if (response.ok) {
+                                response.json().then((data) => {
+                                    biblioteca.notification.create({
+                                        text: JSON.stringify(data),
+                                        type: 'success'
+                                    });
+                                });
+                            } else {
+                                response.json().then((data) => {
+                                    biblioteca.notification.create({
+                                        text: JSON.stringify(data),
+                                        type: 'error'
+                                    });
+                                });
+                            }
+                        }).catch((error) => {
+                            console.log('Erro geral na comunicação:', error);
+                        });
                     }
                 })
-            }).then((response) => {
-                if (response.ok) {
-                    response.json().then((data) => {
-                        biblioteca.notification.create({
-                            text: JSON.stringify(data),
-                            type: 'success'
-                        });
-                    });
-                } else {
-                    response.json().then((data) => {
-                        biblioteca.notification.create({
-                            text: JSON.stringify(data),
-                            type: 'error'
-                        });
-                    });
-                }
-            }).catch((error) => {
-                console.log('Erro geral na comunicação:', error);
-            });
-         })
+            ])
+        )
+    
+});
+})();
+
+
+
+        // const formCadastrar = document.querySelector('form');
+
+        // formCadastrar.addEventListener('submit', (evento) => {
+        //     evento.preventDefault();
+
+
+        //         // categoria = document.getElementById('data-categoria').value,
+        //         // nome = document.getElementById('data-nome').value,
+        //         // endereco = document.getElementById('data-endereco').value,
+        //         // cep = document.getElementById('data-cep').value,
+        //         // telefone = document.getElementById('data-telefone').value,
+        //         // email = document.getElementById('data-email').value
+
+        //        //api.postEstab(endereco, telefone, nome, categoria, cep, email)
+        //        //ou
+
+
+        //         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+        //         method: 'POST',
+        //         mode: 'no-cors',
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({
+                    
+        //             address : 'xxx',//input.endereco.value,
+        //             phone : 'xx',//input.telefone.value,
+        //             name : 'aa',//input.nome.value,
+        //             group: {
+        //                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+        //             },
+        //             postal_code : 'xx',//input.cep.value,
+        //             email : 'ss',//input.email.value,
+        //             category: {
+        //                 uid: '0e85479d-3d8f-483f-990c-cf24332d54f8'
+        //               },
+                  
+        //         })
+        //     }).catch((error) => {
+        //         console.log('Erro geral na comunicação:', error);
+        //     });
+        //  })
 
       // biblioteca.footer2();
-    });
-})();
+
 
             //0e85479d-3d8f-483f-990c-cf24332d54f8
 
