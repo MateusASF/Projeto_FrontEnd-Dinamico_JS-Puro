@@ -29,6 +29,6 @@
 
         main.appendChild(biblioteca.createBanner())
 
-        biblioteca.footer2() 
+        biblioteca.footer2("./pages/estabelecimentos/listar/estabelecimentoListar.html") 
     });
 })();

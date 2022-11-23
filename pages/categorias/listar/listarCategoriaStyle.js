@@ -17,12 +17,16 @@
         .containerCards {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
             background: #ab956d;
             border-radius: 15px;
             padding: 0 0 2rem 0;
             width: auto;
             margin: 0 10%;
+        }
+        
+        .cardCategoriaLista{
+            margin-bottom: 10px;
         }
 
         .cardCategoriaLista span{

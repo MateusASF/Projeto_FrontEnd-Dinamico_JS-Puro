@@ -122,7 +122,7 @@
 
         @media(max-width: 1024px) and (min-width: 769px){
             header img {
-                width: 28vw;
+                width: cover;
             }
             header a {
                 font-size: 1.5vw;
@@ -134,7 +134,7 @@
 
         @media(max-width: 768px) and (min-width: 481px){
             header img {
-                width: 35vw;
+                width: cover;
             }
             header a {
                 font-size: 2.5vw;
@@ -144,20 +144,6 @@
             }
         }
 
-        @media(max-width: 480px) and (min-width: 320px){
-            header img {
-                width: 45vw;
-            }
-            header a {
-                font-size: 3.5vw;
-            }
-            .cardCategoria p, span, a {
-                font-size: 3vw;
-            }
-            .topMenu {
-                margin-right: 1rem;
-            }
-        }
 
 
         div.field {

@@ -405,7 +405,8 @@ window.biblioteca = {
         const linkDelete = document.createElement('a');
         const linkEdit = document.createElement('a');
 
-        const spanCategoria = document.createElement('span');
+        const spanCategoriaName = document.createElement('span');
+        const spanCategoriaUid = document.createElement('p');
 
         const iconDelete = document.createElement('i');
         const iconEdit = document.createElement('i');
@@ -416,7 +417,7 @@ window.biblioteca = {
         iconDelete.textContent = 'delete';
         iconEdit.textContent = 'edit';
 
-
+        
         
         linkDelete.href = "#"
         linkEdit.href = "#"
@@ -431,11 +432,14 @@ window.biblioteca = {
         linkDelete.appendChild(iconDelete)
         linkEdit.appendChild(iconEdit)
 
-        spanCategoria.textContent = nomeCategoria;
+        spanCategoriaName.textContent =nomeCategoria;
+        spanCategoriaUid.textContent = "Id: " + uidCategoria;
         
-        divListarCategoria.appendChild(spanCategoria);
-        divListarCategoria.appendChild(linkDelete);
-        divListarCategoria.appendChild(linkEdit);
+        spanCategoriaName.appendChild(linkDelete)
+        spanCategoriaName.appendChild(linkEdit)
+        divListarCategoria.appendChild(spanCategoriaName);
+        divListarCategoria.appendChild(spanCategoriaUid);
+
         
         return divListarCategoria;
     },
@@ -594,20 +598,19 @@ window.biblioteca = {
 
         return array
     },
-    footer2: async () => {
+    footer2: async (url) => {
         const categorias = await listCategory();
         const estabelecimentos = await listEstablishment();
-    
-        console.log(categorias)
-        console.log(estabelecimentos)
     
         const footer = document.createElement('footer');
         footer.classList.add('footerDiv')
     
         categorias.forEach((item) => {
             let contador = 0;
+            let idFilter = ""
             estabelecimentos.forEach((elemento) => {
                 if (elemento.category.uid === item.uid) {
+                    idFilter = item.uid
                     contador++
                 }
             })
@@ -615,15 +618,32 @@ window.biblioteca = {
             divElement.classList.add('cardCategoria')
             const spanCategoria = document.createElement('span');
             const link = document.createElement('a');
-    
+
+
             link.textContent = `${item.name +" "+ contador}`
     
-            link.setAttribute('href', "#");
+            console.log(idFilter)
+            //console.log(url)
+
+            link.addEventListener('click', () => biblioteca.filtrarEstabelecimentos(idFilter, url));
+
+            link.setAttribute('id', idFilter);
+
             spanCategoria.appendChild(link);
             divElement.appendChild(spanCategoria)
             footer.appendChild(divElement);
         })
         document.body.appendChild(footer);
+    },
+    filtrarEstabelecimentos: (idFilter, link) => {    
+        console.log(link)   
+        console.log(idFilter)   
+
+        var passaValor= function(valor)
+        {
+            window.location = `${link}?minhaVariavel=` + valor;
+        }
+        passaValor(idFilter);
     },
     queryString: (parameter) => {
         var loc = location.search.substring(1, location.search.length);
