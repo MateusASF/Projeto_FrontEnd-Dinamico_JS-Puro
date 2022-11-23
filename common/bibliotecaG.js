@@ -474,14 +474,35 @@ window.biblioteca = {
         }
         return div;
     },
-    listarEstabelecimentoElemento: (nomeEst, enderecoEst, postalCodeEst, emailEst, foneEst) => {
+    listarEstabelecimentoElemento: ({nomeEst, enderecoEst, postalCodeEst, emailEst, foneEst, uidEstabelecimento}) => {
         const divListarEstabelecimento = document.createElement('div');
-        divListarEstabelecimento.classList.add('cardCategoriaLista')
+        divListarEstabelecimento.classList.add('cardEstabelecimentoLista')
+
+        const linkDelete = document.createElement('a');
+        const linkEdit = document.createElement('a');
 
         const spanEstabelecimento = document.createElement('span');
         const hNome = document.createElement('h3');
         const pEnd = document.createElement('p');
         const pContact = document.createElement('p');
+
+        const iconDelete = document.createElement('i');
+        const iconEdit = document.createElement('i');
+    
+        iconDelete.classList.add('material-icons')
+        iconEdit.classList.add('material-icons')
+            
+        iconDelete.textContent = 'delete';
+        iconEdit.textContent = 'edit';
+            
+        linkDelete.href = "#"
+        linkEdit.href = "#"
+    
+        linkDelete.setAttribute("id", uidEstabelecimento)
+        linkDelete.addEventListener('click', biblioteca.deleteEstabelecimento); //fazer função
+    
+        linkDelete.appendChild(iconDelete)
+        linkEdit.appendChild(iconEdit)
 
         spanEstabelecimento.appendChild(hNome);
         spanEstabelecimento.appendChild(pEnd);
@@ -490,6 +511,10 @@ window.biblioteca = {
         hNome.textContent =  "Nome: " + nomeEst;
         pEnd.textContent = "Endereço: " + enderecoEst + ", código Postal: " + postalCodeEst;
         pContact.textContent = "e-mail: " + emailEst + ", telefone: " + foneEst;
+
+        divListarEstabelecimento.appendChild(spanEstabelecimento);
+        divListarEstabelecimento.appendChild(linkDelete);
+        divListarEstabelecimento.appendChild(linkEdit);
 
         divListarEstabelecimento.appendChild(spanEstabelecimento);
         return divListarEstabelecimento;
@@ -502,10 +527,20 @@ window.biblioteca = {
             const postalCode = JSON.stringify(data[i], ['postal_code']).replace(`{"postal_code":"`, "").replace(`"}`, "")
             const email = JSON.stringify(data[i], ['email']).replace(`{"email":"`, "").replace(`"}`, "")
             const phone = JSON.stringify(data[i], ['phone']).replace(`{"phone":"`, "").replace(`"}`, "")
+            const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
 
-            const element = biblioteca.listarEstabelecimentoElemento(name, address, postalCode, email, phone)
+            // nomeEst, enderecoEst, postalCodeEst, emailEst, foneEst, uidEstabelecimento
+
+            const element = biblioteca.listarEstabelecimentoElemento({
+                nomeEst: name, 
+                enderecoEst: address, 
+                postalCodeEst: postalCode, 
+                emailEst: email, 
+                foneEst: phone, 
+                uidEstabelecimento: uid})
                 //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves            )
             array.push(element)
+
         }
 
         return array
