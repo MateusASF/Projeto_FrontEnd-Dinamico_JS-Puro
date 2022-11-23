@@ -25,8 +25,8 @@
                     imgheader: '/img/logo.jpeg',
                     linkMenu: '../../../index.html',
                     sobre: '../../sobre/sobre.html',
-                    listCat: '../listar/listarCategoria.html',
-                    cadCat: '#',
+                    listCat: '../../categorias/listar/listarCategoria.html',
+                    cadCat: '../../categorias/cadastrar/cadastrarCategoria.html',
                     listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
                     cadEst: '../../estabelecimentos/cadastrar/estabelecimentosCadastrar.html'
                 })
@@ -63,7 +63,7 @@
                 }),
                 biblioteca.actions([
                     biblioteca.button({
-                        text: 'Cadastrar',
+                        text: 'Salvar',
                         type: 'primary',
                         onClick: () => {
                             biblioteca.notification.remove();

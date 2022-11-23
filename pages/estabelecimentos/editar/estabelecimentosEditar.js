@@ -3,7 +3,6 @@
     for (const file of [
         'common/bibliotecaG.js',
         'common/styleCommon.js',
-        'common/api.js'
         
     ]) {
         const script = document.createElement('script');
@@ -22,6 +21,9 @@
 
         document.body.appendChild(main);
 
+        const loadId = biblioteca.queryString("minhaVariavel");
+        console.log(loadId);
+
         main.appendChild(
             biblioteca.header([
                 biblioteca.elementoHeader({
@@ -31,7 +33,7 @@
                     listCat: '../../categorias/listar/listarCategoria.html',
                     listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
                     cadCat: '../../categorias/cadastrar/cadastrarCategoria.html',
-                    cadEst: '#',
+                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentosCadastrar.html',
                 })
             ])
         )
@@ -82,7 +84,7 @@
 
         const formContainer = biblioteca.createDiv('form-container');
 
-        const h1 = biblioteca.createH1('Cadastre seu  estabelecimento','data-h1', formContainer);
+        const h1 = biblioteca.createH1('Atualização Cadastral','data-h1', formContainer);
 
 
         main.appendChild(formContainer);
@@ -118,7 +120,7 @@
                 }),
 
                 biblioteca.button({
-                    text: 'Cadastrar',
+                    text: 'Salvar',
                     type: 'primary',
                     onClick: () => {
                         biblioteca.notification.remove();
@@ -137,12 +139,13 @@
 
                        
                         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
-                            method: 'POST',
+                            method: 'PUT',
                             headers: {
                                 "Content-Type": "application/json"
                             },
                             body: JSON.stringify({
-                    
+
+                                            uid: loadId,
                                             address : input.endereco.value,
                                             phone : input.telefone.value,
                                             name : input.nome.value,
@@ -184,58 +187,5 @@
     
 });
 })();
-
-
-
-        // const formCadastrar = document.querySelector('form');
-
-        // formCadastrar.addEventListener('submit', (evento) => {
-        //     evento.preventDefault();
-
-
-        //         // categoria = document.getElementById('data-categoria').value,
-        //         // nome = document.getElementById('data-nome').value,
-        //         // endereco = document.getElementById('data-endereco').value,
-        //         // cep = document.getElementById('data-cep').value,
-        //         // telefone = document.getElementById('data-telefone').value,
-        //         // email = document.getElementById('data-email').value
-
-        //        //api.postEstab(endereco, telefone, nome, categoria, cep, email)
-        //        //ou
-
-
-        //         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
-        //         method: 'POST',
-        //         mode: 'no-cors',
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify({
-                    
-        //             address : 'xxx',//input.endereco.value,
-        //             phone : 'xx',//input.telefone.value,
-        //             name : 'aa',//input.nome.value,
-        //             group: {
-        //                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-        //             },
-        //             postal_code : 'xx',//input.cep.value,
-        //             email : 'ss',//input.email.value,
-        //             category: {
-        //                 uid: '0e85479d-3d8f-483f-990c-cf24332d54f8'
-        //               },
-                  
-        //         })
-        //     }).catch((error) => {
-        //         console.log('Erro geral na comunicação:', error);
-        //     });
-        //  })
-
-      // biblioteca.footer2();
-
-
-            //0e85479d-3d8f-483f-990c-cf24332d54f8
-
-        
-
 
 

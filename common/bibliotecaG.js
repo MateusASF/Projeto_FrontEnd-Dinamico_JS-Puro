@@ -451,7 +451,7 @@ window.biblioteca = {
         {
             window.location = "../editar/editarCategoria.html?minhaVariavel=" + valor;
         }
-        var valorQueEuQueroPassar = 123;
+        //var valorQueEuQueroPassar = 123;
         
         passaValor(idValue);
 
@@ -519,6 +519,10 @@ window.biblioteca = {
             
         linkDelete.href = "#"
         linkEdit.href = "#"
+
+   
+        linkEdit.setAttribute("id", uidEstabelecimento)
+        linkEdit.addEventListener('click', biblioteca.updateEstabelecimento);
     
         linkDelete.setAttribute("id", uidEstabelecimento)
         linkDelete.addEventListener('click', biblioteca.deleteEstabelecimento); //fazer função
@@ -540,6 +544,19 @@ window.biblioteca = {
 
         divListarEstabelecimento.appendChild(spanEstabelecimento);
         return divListarEstabelecimento;
+    },
+
+    updateEstabelecimento: async (event) => {
+        const idValue = event.path[1].id
+
+        
+        var passaValor= function(valor)
+        {
+            window.location = "../editar/estabelecimentosEditar.html?minhaVariavel=" + valor;
+        }
+
+        
+        passaValor(idValue);
     },
     criaCardEstabelecimento: (data) => {
         const array = [];
