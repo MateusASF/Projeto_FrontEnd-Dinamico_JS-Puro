@@ -16,7 +16,7 @@
             border-radius: 15px;
             padding: 0 0 2rem 0;
             width: auto;
-            margin-bottom: 20px; 
+            margin: 0 10%;
         }
 
         .cardCategoriaLista span{
