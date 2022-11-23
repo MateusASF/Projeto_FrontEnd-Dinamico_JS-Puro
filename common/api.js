@@ -62,7 +62,7 @@ window.deleteCategoriaApi = async function (uidCategoria) {
         alert('Erro geral na comunicação:')
     }
     ),
-    alert('Cadastro exckuido com sucesso');
+    alert('Cadastro excluído com sucesso');
 }
 
 
@@ -85,7 +85,7 @@ window.deleteEstabelecimentoApi = async function (uidEstabelecimento) {
     }
 
     ),
-    alert('Cadastro exckuido com sucesso');
+    alert('Cadastro excluído com sucesso');
 }
 
 
@@ -98,7 +98,7 @@ window.filterFooter = async function (uidCategoria) {
         body: JSON.stringify({
             text: "",
             category: {
-                uid: "uidCategoria"
+                uid: uidCategoria
             },
             group: {
                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
