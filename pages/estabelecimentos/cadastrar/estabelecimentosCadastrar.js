@@ -122,18 +122,18 @@
                     type: 'primary',
                     onClick: () => {
                         biblioteca.notification.remove();
-                        // if (input.codigo.value == '') {
-                        //     return biblioteca.notification.create({
-                        //         text: 'Código inválido.',
-                        //         type: 'error'
-                        //     });
-                        // }
-                        // if (input.nome.value == '') {
-                        //     return biblioteca.notification.create({
-                        //         text: 'Nome inválido.',
-                        //         type: 'error'
-                        //     });
-                       // }
+                        if (input.categoria.value == '' ||
+                        input.nome.value==''||
+                        input.endereco.value==''||
+                        input.cep.value==''||
+                        input.telefone.value==''||
+                        input.email.value=='') {
+                            return biblioteca.notification.create({
+                                text: 'Todos os campos são obrigatórios',
+                                type: 'error'
+                            });
+                        }
+
 
                        
                         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
