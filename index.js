@@ -9,10 +9,10 @@
         document.body.appendChild(script);
     }
 
-    window.addEventListener('load', ()=> {
+    window.addEventListener('load', () => {
         const main = document.createElement('main');
         document.body.appendChild(main);
-    
+
         main.appendChild(
             biblioteca.header([
                 biblioteca.elementoHeader({
@@ -24,11 +24,11 @@
                     listEst: './pages/estabelecimentos/listar/estabelecimentoListar.html',
                     cadEst: './pages/estabelecimentos/cadastrar/estabelecimentosCadastrar.html'
                 })
-            ]) 
+            ])
         )
 
         main.appendChild(biblioteca.createBanner())
 
-        biblioteca.footer2("./pages/estabelecimentos/listar/estabelecimentoListar.html") 
+        biblioteca.footer2("./pages/estabelecimentos/listar/estabelecimentoListar.html")
     });
 })();

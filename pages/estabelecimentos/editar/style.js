@@ -84,16 +84,16 @@
             
             
             button{
-              margin-left: 6px;
-              padding: 5px;
-              background-color:  rgb(10, 29, 116);
-              color:rgb(207, 208, 209);
-              width: 10rem;
-              height: auto;
-              font-size: 1.2rem;
-              font-weight:600;
-              border-radius: 10px;
-              border-width: 0.1rem;
+                margin-left: 6px;
+                padding: 5px;
+                background-color:  rgb(10, 29, 116);
+                color:rgb(207, 208, 209);
+                width: 10rem;
+                height: auto;
+                font-size: 1.2rem;
+                font-weight:600;
+                border-radius: 10px;
+                border-width: 0.1rem;
             }
             
             
@@ -105,5 +105,5 @@
 
 
             `;
-            document.body.appendChild(style);
-        })(); 
+    document.body.appendChild(style);
+})(); 

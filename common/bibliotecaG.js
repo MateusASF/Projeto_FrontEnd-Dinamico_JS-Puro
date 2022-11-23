@@ -208,7 +208,6 @@ window.biblioteca = {
         link.appendChild(img);
         divLogo.appendChild(link);
 
-        //criação do menu
 
         const Cat = document.createElement("a");
         const Est = document.createElement("a");
@@ -365,7 +364,6 @@ window.biblioteca = {
 
             const element = biblioteca.elementoFooter({
                 nomeCategoria: name,
-                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
                 quantidadeCategoria: contagem,
                 linkA: '../index.html'
             })
@@ -445,27 +443,15 @@ window.biblioteca = {
     },
     updateCategoria: async (event) => {
         const idValue = event.path[1].id
-        //console.log(idValue);
 
-        // var dados = JSON.stringify($('input').val());
-        // sessionStorage.setItem('chave', dados);
-        
-        
         var passaValor= function(valor)
         {
             window.location = "../editar/editarCategoria.html?minhaVariavel=" + valor;
-        }
-        //var valorQueEuQueroPassar = 123;
-        
+        }       
         passaValor(idValue);
 
-        //window.location.href = '../editar/editarCategoria.html';
-
-        // await updateCategoriaApi(idValue)
-        // document.location.reload(true);
     },
     deleteCategoria: async (event) => { 
-        //const idValue = document.getElementById(uid).id;
 
         const idValue = event.path[1].id
         console.log(idValue);
@@ -483,7 +469,6 @@ window.biblioteca = {
             const element = biblioteca.listarCategoriaElemento({
                 nomeCategoria: name,
                 uidCategoria: uid,
-                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves
             })
             
             array.push(element)
@@ -566,7 +551,7 @@ window.biblioteca = {
     deleteEstabelecimento: async (event) => { 
 
         const idValue = event.path[1].id
-      //  console.log(idValue);
+
         
         await deleteEstabelecimentoApi(idValue)
 
@@ -582,7 +567,6 @@ window.biblioteca = {
             const phone = JSON.stringify(data[i], ['phone']).replace(`{"phone":"`, "").replace(`"}`, "")
             const uid = JSON.stringify(data[i], ['uid']).replace(`{"uid":"`, "").replace(`"}`, "")
 
-            // nomeEst, enderecoEst, postalCodeEst, emailEst, foneEst, uidEstabelecimento
 
             const element = biblioteca.listarEstabelecimentoElemento({
                 nomeEst: name, 
@@ -591,7 +575,7 @@ window.biblioteca = {
                 emailEst: email, 
                 foneEst: phone, 
                 uidEstabelecimento: uid})
-                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves            )
+                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves            
             array.push(element)
 
         }
@@ -621,9 +605,6 @@ window.biblioteca = {
 
 
             link.textContent = `${item.name +" "+ contador}`
-    
-            console.log(idFilter)
-            //console.log(url)
 
             link.addEventListener('click', () => biblioteca.filtrarEstabelecimentos(idFilter, url));
 

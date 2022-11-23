@@ -55,7 +55,7 @@
                     input: inputs.nome
                 }),
                 biblioteca.actions([
-                  
+                
                     biblioteca.button({
                         text: 'Cadastrar',
                         type: 'primary',
