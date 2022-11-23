@@ -422,20 +422,43 @@ window.biblioteca = {
         linkEdit.href = "#"
 
         linkDelete.setAttribute("id", uidCategoria)
+        linkEdit.setAttribute("id", uidCategoria)
 
         linkDelete.addEventListener('click', biblioteca.deleteCategoria);
+        linkEdit.addEventListener('click', biblioteca.updateCategoria);
+
 
         linkDelete.appendChild(iconDelete)
         linkEdit.appendChild(iconEdit)
 
         spanCategoria.textContent = nomeCategoria;
         
-        
         divListarCategoria.appendChild(spanCategoria);
         divListarCategoria.appendChild(linkDelete);
         divListarCategoria.appendChild(linkEdit);
         
         return divListarCategoria;
+    },
+    updateCategoria: async (event) => {
+        const idValue = event.path[1].id
+        //console.log(idValue);
+
+        // var dados = JSON.stringify($('input').val());
+        // sessionStorage.setItem('chave', dados);
+        
+        
+        var passaValor= function(valor)
+        {
+            window.location = "../editar/editarCategoria.html?minhaVariavel=" + valor;
+        }
+        var valorQueEuQueroPassar = 123;
+        
+        passaValor(idValue);
+
+        //window.location.href = '../editar/editarCategoria.html';
+
+        // await updateCategoriaApi(idValue)
+        // document.location.reload(true);
     },
     deleteCategoria: async (event) => { 
         //const idValue = document.getElementById(uid).id;
@@ -446,7 +469,6 @@ window.biblioteca = {
         await deleteCategoriaApi(idValue)
 
         document.location.reload(true);
-
     },
     criaCardCategoria: (data) => {
         const array = [];
@@ -545,7 +567,6 @@ window.biblioteca = {
 
         return array
     },
-
     footer2: async () => {
         const categorias = await listCategory();
         const estabelecimentos = await listEstablishment();
@@ -576,6 +597,23 @@ window.biblioteca = {
             footer.appendChild(divElement);
         })
         document.body.appendChild(footer);
+    },
+    queryString: (parameter) => {
+        var loc = location.search.substring(1, location.search.length);
+        var param_value = false;
+        var params = loc.split("&");
+        for (i = 0; i < params.length; i++) {
+            param_name = params[i].substring(0, params[i].indexOf('='));
+            if (param_name == parameter) {
+                param_value = params[i].substring(params[i].indexOf('=') + 1)
+            }
+        }
+        if (param_value) {
+            return param_value;
+        }
+        else {
+            return undefined;
+        }
     }
 }
 
