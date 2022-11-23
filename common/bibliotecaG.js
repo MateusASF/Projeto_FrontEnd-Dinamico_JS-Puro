@@ -567,7 +567,7 @@ window.biblioteca = {
 
         return array
     },
-    footer2: async () => {
+    footer2: async (url) => {
         const categorias = await listCategory();
         const estabelecimentos = await listEstablishment();
     
@@ -579,8 +579,10 @@ window.biblioteca = {
     
         categorias.forEach((item) => {
             let contador = 0;
+            let idFilter = ""
             estabelecimentos.forEach((elemento) => {
                 if (elemento.category.uid === item.uid) {
+                    idFilter = item.uid
                     contador++
                 }
             })
@@ -588,15 +590,30 @@ window.biblioteca = {
             divElement.classList.add('cardCategoria')
             const spanCategoria = document.createElement('span');
             const link = document.createElement('a');
-    
+
+
             link.textContent = `${item.name +" "+ contador}`
     
-            link.setAttribute('href', "#");
+            link.addEventListener('click', () => biblioteca.filtrarEstabelecimentos(idFilter, link.type));
+
+            link.setAttribute('type', url);
+            link.setAttribute('id', idFilter);
+
             spanCategoria.appendChild(link);
             divElement.appendChild(spanCategoria)
             footer.appendChild(divElement);
         })
         document.body.appendChild(footer);
+    },
+    filtrarEstabelecimentos: (event, idFilter, link) => {
+        const idValue = event.path[1].id
+        console.log(idValue)
+        
+        var passaValor= function(valor)
+        {
+            window.location = `${link}?minhaVariavel=` + valor;
+        }
+        passaValor(idFilter);
     },
     queryString: (parameter) => {
         var loc = location.search.substring(1, location.search.length);

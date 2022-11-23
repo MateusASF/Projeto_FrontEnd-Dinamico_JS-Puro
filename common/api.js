@@ -64,39 +64,45 @@ window.deleteCategoriaApi = async function (uidCategoria) {
     )
 }
 
-// window.updateCategoriaApi = async function (uidCategoria) {
 
-//     const button = document.querySelector('button')
-//     button.value = "Salvar"
+window.filterFooter = async function (uidCategoria) {
+    await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            text: "",
+            category: {
+                uid: "uidCategoria"
+            },
+            group: {
+                uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+            }
+        }
+        )
+    }).then((response) => {
+        if (response.ok) {
+            response.json().then((data) => {
 
-//     const code = document.querySelectorAll('input')[0];
-//     const name = document.querySelectorAll('input')[1];
+                main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                    biblioteca.criaCardEstabelecimento(data)
+                ));
 
-//     await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category', {
-//         method: 'PUT',
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({
-//             uid: uidCategoria,
-//             code: code.value,
-//             name: name.value,
-//             group: {
-//                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-//             }
-//         })
-//     }).catch((error) => {
-//         alert('Erro geral na comunicação:')
-//     }
-//     )
-//     alert('Editado com Sucesso')
-// }
+            });
 
-//async function editar ()
-
-
-
-
+        } else {
+            response.json().then((data) => {
+                biblioteca.notification.create({
+                    text: JSON.stringify(data),
+                    type: 'error'
+                });
+            });
+        }
+    }).catch((error) => {
+        console.log('Erro geral na comunicação:', error);
+    });
+}
 
 
 
