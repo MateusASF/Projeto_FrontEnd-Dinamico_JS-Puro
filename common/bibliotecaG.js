@@ -598,9 +598,6 @@ window.biblioteca = {
         const categorias = await listCategory();
         const estabelecimentos = await listEstablishment();
     
-        console.log(categorias)
-        console.log(estabelecimentos)
-    
         const footer = document.createElement('footer');
         footer.classList.add('footerDiv')
     
@@ -621,9 +618,11 @@ window.biblioteca = {
 
             link.textContent = `${item.name +" "+ contador}`
     
-            link.addEventListener('click', () => biblioteca.filtrarEstabelecimentos(idFilter, link.type));
+            console.log(idFilter)
+            //console.log(url)
 
-            link.setAttribute('type', url);
+            link.addEventListener('click', () => biblioteca.filtrarEstabelecimentos(idFilter, url));
+
             link.setAttribute('id', idFilter);
 
             spanCategoria.appendChild(link);
@@ -632,7 +631,10 @@ window.biblioteca = {
         })
         document.body.appendChild(footer);
     },
-    filtrarEstabelecimentos: (event, idFilter, link) => {        
+    filtrarEstabelecimentos: (idFilter, link) => {    
+        console.log(link)   
+        console.log(idFilter)   
+
         var passaValor= function(valor)
         {
             window.location = `${link}?minhaVariavel=` + valor;

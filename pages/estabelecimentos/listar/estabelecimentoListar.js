@@ -16,6 +16,8 @@
 
         document.body.appendChild(main);
 
+        const loadId = biblioteca.queryString("minhaVariavel");
+
         main.appendChild(
             biblioteca.header([
                 biblioteca.elementoHeader({
@@ -53,6 +55,9 @@
             },
             body: JSON.stringify({
                 text: "",
+                category: {
+                    uid: loadId
+                },
                 group: {
                     uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
                 }
