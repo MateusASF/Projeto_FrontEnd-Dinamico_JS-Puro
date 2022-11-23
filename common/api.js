@@ -61,7 +61,31 @@ window.deleteCategoriaApi = async function (uidCategoria) {
     }).catch((error) => {
         alert('Erro geral na comunicação:')
     }
-    )
+    ),
+    alert('Cadastro exckuido com sucesso');
+}
+
+
+window.deleteEstabelecimentoApi = async function (uidEstabelecimento) {
+    await fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
+        method: 'DELETE',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            uid: uidEstabelecimento,
+            group: {
+                uid: '1a7fba04-cc35-4ded-b0ab-fdfcfd649df2'
+            }
+            
+        }) 
+        
+    }).catch((error) => {
+        alert('Erro geral na comunicação:')
+    }
+
+    ),
+    alert('Cadastro exckuido com sucesso');
 }
 
 
