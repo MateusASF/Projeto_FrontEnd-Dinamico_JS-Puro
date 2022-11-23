@@ -49,7 +49,7 @@
             })
         }
 
-        // if(loadId !== undefined) {
+        if (loadId !== undefined) {
             fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
                 method: 'POST',
                 headers: {
@@ -68,13 +68,13 @@
             }).then((response) => {
                 if (response.ok) {
                     response.json().then((data) => {
-    
+
                         main.appendChild(biblioteca.listarEstabelecimentoDiv(
                             biblioteca.criaCardEstabelecimento(data)
                         ));
-    
+
                     });
-    
+
                 } else {
                     response.json().then((data) => {
                         biblioteca.notification.create({
@@ -87,43 +87,41 @@
                 console.log('Erro geral na comunicação:', error);
             });
 
-//================================================================
+        } else {
+            fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    text: "",
+                    group: {
+                        uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                    }
+                }
+                )
+            }).then((response) => {
+                if (response.ok) {
+                    response.json().then((data) => {
 
-//} else {
-    // fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
-    //     method: 'POST',
-    //     headers: {
-    //         "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify({
-    //         text: "",
-    //         group: {
-    //             uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-    //         }
-    //     }
-    //     )
-    // }).then((response) => {
-    //     if (response.ok) {
-    //         response.json().then((data) => {
+                        main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                            biblioteca.criaCardEstabelecimento(data)
+                        ));
 
-    //             main.appendChild(biblioteca.listarEstabelecimentoDiv(
-    //                 biblioteca.criaCardEstabelecimento(data)
-    //             ));
-
-    //         });
-    //     } else {
-    //         response.json().then((data) => {
-    //             biblioteca.notification.create({
-    //                 text: JSON.stringify(data),
-    //                 type: 'error'
-    //             });
-    //         });
-    //     }
-    // }).catch((error) => {
-    //     console.log('Erro geral na comunicação:', error);
-    // });
-//}
-//=========================
+                    });
+                } else {
+                    response.json().then((data) => {
+                        biblioteca.notification.create({
+                            text: JSON.stringify(data),
+                            type: 'error'
+                        });
+                    });
+                }
+            }).catch((error) => {
+                console.log('Erro geral na comunicação:', error);
+            });
+        }
+        //=========================
         main.appendChild(
             biblioteca.div([
                 biblioteca.form([
