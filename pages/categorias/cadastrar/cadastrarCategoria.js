@@ -55,13 +55,7 @@
                     input: inputs.nome
                 }),
                 biblioteca.actions([
-                    biblioteca.button({
-                        text: 'Voltar',
-                        onClick: () => {
-
-
-                        }
-                    }),
+                  
                     biblioteca.button({
                         text: 'Cadastrar',
                         type: 'primary',

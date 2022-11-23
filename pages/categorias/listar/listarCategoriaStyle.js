@@ -3,7 +3,7 @@
     style.innerHTML = `
         .divGeral {
             background: #ab956d;
-            top: 13rem;
+            top: rem;
             margin: 0 10%;
             border-radius: 15px;
         }
