@@ -1,7 +1,7 @@
 (() => {
     for (const file of [
         'common/bibliotecaG.js',
-        'common/styleCommon.js',
+        'pages/categorias/cadastrar/styleCadastrarCat.js',
         'common/api.js'
     ]) {
         const script = document.createElement('script');
@@ -95,14 +95,14 @@
                                 if (response.ok) {
                                     response.json().then((data) => {
                                         biblioteca.notification.create({
-                                            text: JSON.stringify(data),
+                                            text: "Cadastro realido com sucesso!",
                                             type: 'success'
                                         });
                                     });
                                 } else {
                                     response.json().then((data) => {
                                         biblioteca.notification.create({
-                                            text: JSON.stringify(data),
+                                            text: "Desculpa, erro encontrado",
                                             type: 'error'
                                         });
                                     });
