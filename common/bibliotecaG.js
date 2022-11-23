@@ -405,7 +405,8 @@ window.biblioteca = {
         const linkDelete = document.createElement('a');
         const linkEdit = document.createElement('a');
 
-        const spanCategoria = document.createElement('span');
+        const spanCategoriaName = document.createElement('span');
+        const spanCategoriaUid = document.createElement('p');
 
         const iconDelete = document.createElement('i');
         const iconEdit = document.createElement('i');
@@ -416,7 +417,7 @@ window.biblioteca = {
         iconDelete.textContent = 'delete';
         iconEdit.textContent = 'edit';
 
-
+        
         
         linkDelete.href = "#"
         linkEdit.href = "#"
@@ -431,11 +432,14 @@ window.biblioteca = {
         linkDelete.appendChild(iconDelete)
         linkEdit.appendChild(iconEdit)
 
-        spanCategoria.textContent = nomeCategoria;
+        spanCategoriaName.textContent =nomeCategoria;
+        spanCategoriaUid.textContent = "Id: " + uidCategoria;
         
-        divListarCategoria.appendChild(spanCategoria);
-        divListarCategoria.appendChild(linkDelete);
-        divListarCategoria.appendChild(linkEdit);
+        spanCategoriaName.appendChild(linkDelete)
+        spanCategoriaName.appendChild(linkEdit)
+        divListarCategoria.appendChild(spanCategoriaName);
+        divListarCategoria.appendChild(spanCategoriaUid);
+
         
         return divListarCategoria;
     },
