@@ -79,6 +79,17 @@
                                         })
                                     }).then((response) => {
                                         if (response.ok) {
+                                            // sessionStorage.setItem('dadosFetch')
+
+                                            // const result = sessionStorage.getItem('dadosFetch', JSON.stringify([
+                                            //     {                               
+                                            //         "uid": "string",
+                                            //         "code": "string",
+                                            //         "name": "string"
+                                            //     }
+                                            // ]))
+                                            // console.log(result)
+
                                             response.json().then((data) => {
                                             
                                                 main.appendChild(biblioteca.listarCategoriaDiv(
