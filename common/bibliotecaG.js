@@ -525,7 +525,7 @@ window.biblioteca = {
         linkEdit.addEventListener('click', biblioteca.updateEstabelecimento);
     
         linkDelete.setAttribute("id", uidEstabelecimento)
-        linkDelete.addEventListener('click', biblioteca.deleteEstabelecimento); //fazer função
+        linkDelete.addEventListener('click', biblioteca.deleteEstabelecimento); 
     
         linkDelete.appendChild(iconDelete)
         linkEdit.appendChild(iconEdit)
@@ -557,6 +557,16 @@ window.biblioteca = {
 
         
         passaValor(idValue);
+    },
+
+    deleteEstabelecimento: async (event) => { 
+
+        const idValue = event.path[1].id
+      //  console.log(idValue);
+        
+        await deleteEstabelecimentoApi(idValue)
+
+        document.location.reload(true);
     },
     criaCardEstabelecimento: (data) => {
         const array = [];
