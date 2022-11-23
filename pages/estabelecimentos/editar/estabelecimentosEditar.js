@@ -150,7 +150,7 @@
                                             phone : input.telefone.value,
                                             name : input.nome.value,
                                             category: {
-                                                uid: '0e85479d-3d8f-483f-990c-cf24332d54f8'
+                                                uid: input.categoria.value
                                               },
                                             
                                             postal_code : input.cep.value,

@@ -83,7 +83,7 @@
             }
             
             
-            #data-btn-enviar{
+            button{
               margin-left: 6px;
               padding: 5px;
               background-color:  rgb(10, 29, 116);
