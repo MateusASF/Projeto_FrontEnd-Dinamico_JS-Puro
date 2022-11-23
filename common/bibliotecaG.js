@@ -632,10 +632,7 @@ window.biblioteca = {
         })
         document.body.appendChild(footer);
     },
-    filtrarEstabelecimentos: (event, idFilter, link) => {
-        const idValue = event.path[1].id
-        console.log(idValue)
-        
+    filtrarEstabelecimentos: (event, idFilter, link) => {        
         var passaValor= function(valor)
         {
             window.location = `${link}?minhaVariavel=` + valor;
