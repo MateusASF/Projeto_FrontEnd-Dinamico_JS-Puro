@@ -159,15 +159,7 @@
             }
         }
 
-        form {
-            width: 600px;
-            margin: 20px auto;
-            padding: 20px 0 ;
-            background: #ab956d;
-            border-radius: 20px;
-            text-align: center;
-            top: 10rem;
-        }
+
         div.field {
             margin-bottom: 10px;
             font-weight: bold;

@@ -28,10 +28,10 @@
                     imgheader: '/img/logo.jpeg',
                     linkMenu: '../../../index.html',
                     sobre: '../../sobre/sobre.html',
-                    listCat: '../listar/listarCategoria.html',
-                    cadCat: '#',
+                    listCat: '../../categorias/listar/listarCategoria.html',
                     listEst: '../../estabelecimentos/listar/estabelecimentoListar.html',
-                    cadEst: '../../estabelecimentos/cadastrar/estabelecimentoCadastrar.html'
+                    cadCat: '../../categorias/cadastrar/cadastrarCategoria.html',
+                    cadEst: '#',
                 })
             ])
         )

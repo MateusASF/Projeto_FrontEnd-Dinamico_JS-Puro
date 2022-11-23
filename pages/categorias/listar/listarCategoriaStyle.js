@@ -4,8 +4,14 @@
         .divGeral {
             background: #ab956d;
             top: rem;
-            margin: 0 10%;
+            margin: 10px 10%;
             border-radius: 15px;
+        }
+
+        form {
+            padding: 20px 0;
+            text-align: center;
+            top: 10rem;
         }
 
         .containerCards {

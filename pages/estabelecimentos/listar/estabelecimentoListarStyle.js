@@ -8,6 +8,12 @@
             border-radius: 15px;
         }
 
+        form {
+            padding: 20px 0;
+            text-align: center;
+            top: 10rem;
+        }
+
         .containerCards {
             display: flex;
             flex-direction: column;

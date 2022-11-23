@@ -10,6 +10,16 @@
                 padding: 0.5rem;
                 margin: 0.5rem;
             }
+
+            form {
+                width: 600px;
+                margin: 20px auto;
+                padding: 20px 0 ;
+                background: #ab956d;
+                border-radius: 20px;
+                text-align: center;
+                top: 10rem;
+            }
             
             .field div {
                 display: flex;
@@ -18,8 +28,6 @@
                 align-items: center;
                 width: 25%;
                 height: 2.0rem;
-               
-            
             }
             
             .field input{
