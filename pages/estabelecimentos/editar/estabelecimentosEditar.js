@@ -3,6 +3,7 @@
     for (const file of [
         'common/bibliotecaG.js',
         'common/styleCommon.js',
+        'common/api.js'
 
     ]) {
         const script = document.createElement('script');
@@ -185,5 +186,6 @@
             ])
         )
 
+        biblioteca.footer2("../listar/estabelecimentoListar.html");
     });
 })();

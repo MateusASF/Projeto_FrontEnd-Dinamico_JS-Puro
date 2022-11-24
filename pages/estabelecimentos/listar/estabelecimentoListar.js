@@ -191,6 +191,6 @@
             ])
         );
 
-        biblioteca.footer2();
+        biblioteca.footer2("./estabelecimentoListar.html");
     });
 })();

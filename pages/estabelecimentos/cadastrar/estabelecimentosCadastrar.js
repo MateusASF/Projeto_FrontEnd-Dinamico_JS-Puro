@@ -183,6 +183,6 @@
         )
 
 
-        biblioteca.footer2();
+        biblioteca.footer2("../listar/estabelecimentoListar.html");
     });
 })();

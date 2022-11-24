@@ -105,7 +105,7 @@
             ])
         );
 
-        biblioteca.footer2();
+        biblioteca.footer2("../../estabelecimentos/listar/estabelecimentoListar.html");
     });
 })();
 
