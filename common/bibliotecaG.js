@@ -483,11 +483,17 @@ window.biblioteca = {
         for (const child of children) {
             div.appendChild(child);
         }
-        return div;
+
+        const divGeral = document.getElementsByClassName('divGeral')[0]
+        divGeral.appendChild(div)
+        return divGeral;
     },
     listarEstabelecimentoElemento: ({nomeEst, enderecoEst, postalCodeEst, emailEst, foneEst, uidEstabelecimento}) => {
         const divListarEstabelecimento = document.createElement('div');
         divListarEstabelecimento.classList.add('cardEstabelecimentoLista')
+
+        const divTilteEstabelecimento = document.createElement('div');
+        divTilteEstabelecimento.classList.add('titleEstabelecimento')
 
         const linkDelete = document.createElement('a');
         const linkEdit = document.createElement('a');
@@ -509,7 +515,8 @@ window.biblioteca = {
         linkDelete.href = "#"
         linkEdit.href = "#"
 
-   
+    
+        
         linkEdit.setAttribute("id", uidEstabelecimento)
         linkEdit.addEventListener('click', biblioteca.updateEstabelecimento);
     
@@ -519,7 +526,9 @@ window.biblioteca = {
         linkDelete.appendChild(iconDelete)
         linkEdit.appendChild(iconEdit)
 
-        spanEstabelecimento.appendChild(hNome);
+
+        divTilteEstabelecimento.appendChild(hNome);
+
         spanEstabelecimento.appendChild(pEnd);
         spanEstabelecimento.appendChild(pContact);
 
@@ -528,9 +537,10 @@ window.biblioteca = {
         pContact.textContent = "e-mail: " + emailEst + ", telefone: " + foneEst;
 
         divListarEstabelecimento.appendChild(spanEstabelecimento);
-        divListarEstabelecimento.appendChild(linkDelete);
-        divListarEstabelecimento.appendChild(linkEdit);
+        divTilteEstabelecimento.appendChild(linkDelete);
+        divTilteEstabelecimento.appendChild(linkEdit);
 
+        divListarEstabelecimento.appendChild(divTilteEstabelecimento);
         divListarEstabelecimento.appendChild(spanEstabelecimento);
         return divListarEstabelecimento;
     },
@@ -623,7 +633,7 @@ window.biblioteca = {
         {
             window.location = `${link}?minhaVariavel=` + valor;
         }
-        
+
         passaValor(idFilter);
     },
     queryString: (parameter) => {

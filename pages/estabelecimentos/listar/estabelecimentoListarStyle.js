@@ -4,7 +4,7 @@
         .divGeral {
             background: #ab956d;
             top: rem;
-            margin: 0 10%;
+            margin: 10px 10%;
             border-radius: 15px;
         }
 
@@ -14,15 +14,24 @@
             top: 10rem;
         }
 
+        .titleEstabelecimento{
+            display: flex;
+            color: #121842;
+        }
+
         .containerCards {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
             background: #ab956d;
             border-radius: 15px;
-            // padding: 0 0 2rem 0;
-            width: 80vw;
-            margin: 0 10%;
+        }
+
+        .cardEstabelecimentoLista {
+            display: flex;
+            flex-direction: column;
+            padding: 0 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .cardEstabelecimentoLista span{

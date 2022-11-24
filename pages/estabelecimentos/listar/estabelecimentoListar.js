@@ -10,6 +10,11 @@
         document.body.appendChild(script);
     }
 
+    const link = document.createElement('link')
+    link.rel = "stylesheet";
+    link.href = "https://fonts.googleapis.com/icon?family=Material+Icons";
+    document.body.appendChild(link);
+
     window.addEventListener('load', () => {
 
         const main = document.createElement('main');
