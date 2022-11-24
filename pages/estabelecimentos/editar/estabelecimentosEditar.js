@@ -19,8 +19,9 @@
     window.addEventListener('load', () => {
 
         const main = document.createElement('main');
-
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Editando Estabelecimento')
 
         const loadId = biblioteca.queryString("minhaVariavel");
         console.log(loadId);
@@ -87,14 +88,10 @@
 
         const h1 = biblioteca.createH1('Atualização Cadastral', 'data-h1', formContainer);
 
-
         main.appendChild(formContainer);
 
         formContainer.appendChild(
-
             biblioteca.createForm2([
-
-
                 biblioteca.createField2({
                     label: "Categoria",
                     input: input.categoria,

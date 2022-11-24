@@ -17,9 +17,11 @@
 
     window.addEventListener('load', () => {
 
-        const main = document.createElement('main');
 
+        const main = document.createElement('main');
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Listagem de Estabelecimentos')
 
         const loadId = biblioteca.queryString("minhaVariavel");
 
@@ -80,7 +82,7 @@
                             biblioteca.criaCardEstabelecimento(data)
                         ));
                     });
-                    
+
 
                 } else {
                     response.json().then((data) => {
@@ -114,27 +116,19 @@
                         main.appendChild(biblioteca.listarEstabelecimentoDiv(
                             biblioteca.criaCardEstabelecimento(data)
                         ));
-                        localStorage.setItem('textEstab',JSON.stringify(data));
+                        localStorage.setItem('textEstab', JSON.stringify(data));
 
                     });
                 } else {
-
-                    
-                    // response.json().then((data) => {
-                    //     biblioteca.notification.create({
-                    //         text: JSON.stringify(data),
-                    //         type: 'error'
-                    //     });
-                    // });
                     let stringlocalStorage = localStorage.getItem('textEstab');
-                    if(stringlocalStorage){
-                    storage = JSON.parse(stringlocalStorage);
-                    console.log(storage);  
-                    main.appendChild(biblioteca.listarEstabelecimentoDiv(
-                    biblioteca.criaCardEstabelecimento(storage)
-                    ));           
+                    if (stringlocalStorage) {
+                        storage = JSON.parse(stringlocalStorage);
+                        console.log(storage);
+                        main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                            biblioteca.criaCardEstabelecimento(storage)
+                        ));
                     }
-                    
+
                 }
             }).catch((error) => {
                 console.log('Erro geral na comunicação:', error);
@@ -153,11 +147,6 @@
                         input: inputs.categoria
                     }),
                     biblioteca.actions([
-                        // biblioteca.button({
-                        //     text: 'Voltar',
-                        //     onClick: () => {
-                        //     }
-                        // }),
                         biblioteca.button({
                             text: 'Buscar',
                             type: 'primary',
@@ -182,31 +171,25 @@
                                     }).then((response) => {
                                         if (response.ok) {
                                             response.json().then((data) => {
-    
+
                                                 main.appendChild(biblioteca.listarEstabelecimentoDiv(
                                                     biblioteca.criaCardEstabelecimento(data)
                                                 ));
-                                                localStorage.setItem('text',JSON.stringify(data));
-    
+                                                localStorage.setItem('text', JSON.stringify(data));
+
                                             });
-    
+
                                         } else {
-                                            console.log("storage if -> "+inputs.categoria.value)
-                                            // response.json().then((data) => {
-                                            //     biblioteca.notification.create({
-                                            //         text: JSON.stringify(data),
-                                            //         type: 'error'
-                                            //     });
-                                            // });
+                                            console.log("storage if -> " + inputs.categoria.value)
                                             let stringlocalStorage = localStorage.getItem('textEstab');
-                                            if(stringlocalStorage){
-                                            storage = JSON.parse(stringlocalStorage);
-                                            console.log(storage);  
-                                            main.appendChild(biblioteca.listarEstabelecimentoDiv(
-                                            biblioteca.criaCardEstabelecimento(storage)
-                                            ));           
+                                            if (stringlocalStorage) {
+                                                storage = JSON.parse(stringlocalStorage);
+                                                console.log(storage);
+                                                main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                                                    biblioteca.criaCardEstabelecimento(storage)
+                                                ));
                                             }
-                                    }
+                                        }
                                     }).catch((error) => {
                                         console.log('Erro geral na comunicação:', error);
                                     });
@@ -219,7 +202,7 @@
                                         body: JSON.stringify({
                                             text: inputs.busca.value,
                                             category: {
-                                                uid: inputs.categoria.value 
+                                                uid: inputs.categoria.value
                                             },
                                             group: {
                                                 uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
@@ -229,30 +212,24 @@
                                     }).then((response) => {
                                         if (response.ok) {
                                             response.json().then((data) => {
-    
+
                                                 main.appendChild(biblioteca.listarEstabelecimentoDiv(
                                                     biblioteca.criaCardEstabelecimento(data)
                                                 ));
-                                                localStorage.setItem('text',JSON.stringify(data));
-    
+                                                localStorage.setItem('text', JSON.stringify(data));
+
                                             });
-    
+
                                         } else {
-                                            // response.json().then((data) => {
-                                            //     biblioteca.notification.create({
-                                            //         text: JSON.stringify(data),
-                                            //         type: 'error'
-                                            //     });
-                                            // });
                                             let stringlocalStorage = localStorage.getItem('textEstab');
-                                            if(stringlocalStorage){
-                                            storage = JSON.parse(stringlocalStorage);
-                                            console.log(storage);  
-                                            main.appendChild(biblioteca.listarEstabelecimentoDiv(
-                                            biblioteca.criaCardEstabelecimento(storage)
-                                            ));           
+                                            if (stringlocalStorage) {
+                                                storage = JSON.parse(stringlocalStorage);
+                                                console.log(storage);
+                                                main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                                                    biblioteca.criaCardEstabelecimento(storage)
+                                                ));
                                             }
-                                    }
+                                        }
                                     }).catch((error) => {
                                         console.log('Erro geral na comunicação:', error);
                                     });

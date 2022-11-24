@@ -584,8 +584,7 @@ window.biblioteca = {
                 postalCodeEst: postalCode, 
                 emailEst: email, 
                 foneEst: phone, 
-                uidEstabelecimento: uid})
-                //nomeCategoria: Object.values(data[i]).splice(2), //splice traz consequências graves            
+                uidEstabelecimento: uid})           
             array.push(element)
 
         }
@@ -652,6 +651,19 @@ window.biblioteca = {
         else {
             return undefined;
         }
+    },
+    headConfig: (titlePage) => {
+        const head = document.querySelector('head')
+        const html = document.querySelector('html')
+        const title = document.createElement('title')
+        const charSet = document.createElement('meta')
+
+        html.lang = "pt-br"
+        title.textContent = titlePage
+        charSet.setAttribute('charset', "UTF-8")
+
+        head.appendChild(title)
+        head.appendChild(charSet)
     }
 }
 

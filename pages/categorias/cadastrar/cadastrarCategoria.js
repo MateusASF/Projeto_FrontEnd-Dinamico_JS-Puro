@@ -10,11 +10,12 @@
         document.body.appendChild(script);
     }
 
-    window.addEventListener('load', ()=> {
+    window.addEventListener('load', () => {
 
         const main = document.createElement('main');
-
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Cadastrar Categoria')
 
         main.appendChild(
             biblioteca.header([
@@ -58,7 +59,7 @@
                     input: inputs.nome
                 }),
                 biblioteca.actions([
-                
+
                     biblioteca.button({
                         text: 'Cadastrar',
                         type: 'primary',

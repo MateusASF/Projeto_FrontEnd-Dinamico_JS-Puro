@@ -16,10 +16,12 @@
     document.body.appendChild(link);
 
 
-    window.addEventListener('load', ()=> {
+    window.addEventListener('load', () => {
 
         const main = document.createElement('main');
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Listagem de Categorias')
 
         main.appendChild(
             biblioteca.header([
@@ -34,7 +36,7 @@
                 })
             ])
         )
-        
+
 
         const inputs = {
             busca: biblioteca.input({
@@ -58,36 +60,27 @@
             })
         }).then((response) => {
             if (response.ok) {
-            
-                response.json().then((data) => {                                            
+                response.json().then((data) => {
                     main.appendChild(biblioteca.listarCategoriaDiv(
                         biblioteca.criaCardCategoria(data)))
-                    localStorage.setItem('text',JSON.stringify(data));
-                        
-            })
-            
+
+                    localStorage.setItem('text', JSON.stringify(data));
+                })
+
 
             } else {
-                // response.json().then((data) => {
-                //     biblioteca.notification.create({
-                //         text: JSON.stringify(data),
-                //         type: 'error'
-                    
-                // });
-            // });
                 let stringlocalStorage = localStorage.getItem('text');
-                if(stringlocalStorage){
-                storage = JSON.parse(stringlocalStorage);
-                console.log(storage);  
-                main.appendChild(biblioteca.listarCategoriaDiv(
-                    biblioteca.criaCardCategoria(storage)))
-                ;           
+                if (stringlocalStorage) {
+                    storage = JSON.parse(stringlocalStorage);
+                    console.log(storage);
+                    main.appendChild(biblioteca.listarCategoriaDiv(
+                        biblioteca.criaCardCategoria(storage)))
+                        ;
                 }
-        
+
             }
         }).catch((error) => {
-            //console.log('Erro geral na comunicação:', error);
-            
+            console.log('Erro geral na comunicação:', error);
         });
 
         const formContainer = biblioteca.createDiv('form-container');
@@ -102,11 +95,6 @@
                         input: inputs.busca
                     }),
                     biblioteca.actions([
-                        // biblioteca.button({
-                        //     text: 'Voltar',
-                        //     onClick: () => {
-                        //     }
-                        // }),
                         biblioteca.button({
                             text: 'Buscar',
                             type: 'primary',
@@ -115,51 +103,36 @@
                                 if (remover !== undefined) {
                                     remover.remove()
                                 }
-                                    fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
-                                        method: 'POST',
-                                        headers: {
-                                            "Content-Type": "application/json"
-                                        },
-                                        body: JSON.stringify({
-                                            text: inputs.busca.value,
-                                            group: {
-                                                uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
-                                            }
+                                fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
+                                    method: 'POST',
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    },
+                                    body: JSON.stringify({
+                                        text: inputs.busca.value,
+                                        group: {
+                                            uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                                        }
+                                    })
+                                }).then((response) => {
+                                    if (response.ok) {
+                                        response.json().then((data) => {
+                                            main.appendChild(biblioteca.listarCategoriaDiv(
+                                                biblioteca.criaCardCategoria(data)))
+                                            localStorage.setItem('text', JSON.stringify(data));
                                         })
-                                    }).then((response) => {
-                                        if (response.ok) {
-                                        
-                                            response.json().then((data) => {                                            
-                                                main.appendChild(biblioteca.listarCategoriaDiv(
-                                                    biblioteca.criaCardCategoria(data)))
-                                                localStorage.setItem('text',JSON.stringify(data));
-                                                    
-                                        })
-                                        
-
-                                        } else {
-                                            // response.json().then((data) => {
-                                            //     biblioteca.notification.create({
-                                            //         text: JSON.stringify(data),
-                                            //         type: 'error'
-                                                
-                                            // });
-                                        // });
-                                            let stringlocalStorage = localStorage.getItem('text');
-                                            if(stringlocalStorage){
+                                    } else {
+                                        let stringlocalStorage = localStorage.getItem('text');
+                                        if (stringlocalStorage) {
                                             storage = JSON.parse(stringlocalStorage);
-                                            console.log(storage);  
+                                            console.log(storage);
                                             main.appendChild(biblioteca.listarCategoriaDiv(
                                                 biblioteca.criaCardCategoria(storage)))
-                                            ;           
-                                            }
-                                    
                                         }
-                                    }).catch((error) => {
-                                        //console.log('Erro geral na comunicação:', error);
-                                        
-                                    });
-
+                                    }
+                                }).catch((error) => {
+                                    console.log('Erro geral na comunicação:', error);
+                                });
                             }
                         })
                     ])

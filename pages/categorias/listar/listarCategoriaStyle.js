@@ -50,20 +50,17 @@
             transition: 0.3s;
             color:rgb(10, 29, 116);
             margin-top: 0.7rem;
-        
         }
         
         .field input:hover{
             border-color: #caae7a;
             border-width: 0.3rem;
-        
         }
         
         .field input:focus{
             border-color: #caae7a;
             border-width: 0.3rem;
             background-color: #f5e9d2;
-        
         }
         
         .field input::placeholder{
@@ -71,7 +68,6 @@
         font-size: 0.8rem;
         font-style: italic;
         }
-        
         
         label{
             color: rgb(207, 208, 209);

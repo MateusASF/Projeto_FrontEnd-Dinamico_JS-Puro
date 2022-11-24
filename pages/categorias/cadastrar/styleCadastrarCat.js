@@ -1,13 +1,6 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
-        *{
-            border: 0;
-            margin: 0;
-            padding: 0;
-            box-sizing:border-box;
-        }
-
         html, body {
             font-family: Arial;
             font-size: 1.4vw;
@@ -281,12 +274,10 @@
             color: #f6f2f2;
         }
 
-        
         .img-container{
             position: relative;
             width: cover;
         }
-        
         `;
     document.body.appendChild(style);
 })(); 

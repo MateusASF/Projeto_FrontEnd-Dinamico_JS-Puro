@@ -24,7 +24,6 @@
         
         }
 
-               
         .field input:hover{
             border-color: #caae7a;
             border-width: 0.3rem;

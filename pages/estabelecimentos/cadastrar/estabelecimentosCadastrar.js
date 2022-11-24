@@ -19,8 +19,9 @@
     window.addEventListener('load', () => {
 
         const main = document.createElement('main');
-
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Cadastrar Estabelecimento')
 
         main.appendChild(
             biblioteca.header([
@@ -38,14 +39,11 @@
 
 
         const input = {
-
             categoria: biblioteca.createInput2({
                 type: 'text',
                 placeholder: "",
                 name: "categoria",
                 id: "data-categoria"
-
-
             }),
             nome: biblioteca.createInput2({
                 type: 'text',
@@ -81,17 +79,12 @@
         }
 
         const formContainer = biblioteca.createDiv('form-container');
-
         const h1 = biblioteca.createH1('Cadastre seu  estabelecimento', 'data-h1', formContainer);
 
 
         main.appendChild(formContainer);
-
         formContainer.appendChild(
-
             biblioteca.createForm2([
-
-
                 biblioteca.createField2({
                     label: "Categoria",
                     input: input.categoria,
@@ -133,9 +126,6 @@
                                 type: 'error'
                             });
                         }
-
-
-
                         fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment', {
                             method: 'POST',
                             headers: {
@@ -155,8 +145,6 @@
                                 group: {
                                     uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
                                 },
-
-
                             })
                         }).then((response) => {
                             if (response.ok) {
@@ -181,7 +169,6 @@
                 })
             ])
         )
-
 
         biblioteca.footer2("../listar/estabelecimentoListar.html");
     });

@@ -20,6 +20,8 @@
         const main = document.createElement('main');
         document.body.appendChild(main);
 
+        biblioteca.headConfig('Sobre nosso projeto')
+
         main.appendChild(
             biblioteca.header([
                 biblioteca.elementoHeader({

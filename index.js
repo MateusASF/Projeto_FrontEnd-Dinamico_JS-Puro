@@ -9,9 +9,12 @@
         document.body.appendChild(script);
     }
 
+
     window.addEventListener('load', () => {
         const main = document.createElement('main');
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Home - Barões da APIzinha')
 
         main.appendChild(
             biblioteca.header([

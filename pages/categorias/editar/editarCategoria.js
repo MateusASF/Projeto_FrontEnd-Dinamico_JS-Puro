@@ -13,8 +13,9 @@
     window.addEventListener('load', () => {
 
         const main = document.createElement('main');
-
         document.body.appendChild(main);
+
+        biblioteca.headConfig('Editando Categoria')
 
         const loadId = biblioteca.queryString("minhaVariavel");
         console.log(loadId);
@@ -48,8 +49,6 @@
                 }
             })
         }
-
-        //var dadosArquivados = JSON.parse(sessionStorage.getItem('chave'));
 
         main.appendChild(
             biblioteca.form([

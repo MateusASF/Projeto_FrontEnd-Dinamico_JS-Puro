@@ -2,8 +2,6 @@
 (() => {
     const style = document.createElement('style');
     style.innerHTML = `
-        *
-
             .field{
                 display: flex;
                 justify-content: center;
