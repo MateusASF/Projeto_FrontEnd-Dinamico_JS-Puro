@@ -72,8 +72,8 @@
                         main.appendChild(biblioteca.listarEstabelecimentoDiv(
                             biblioteca.criaCardEstabelecimento(data)
                         ));
-
                     });
+                    
 
                 } else {
                     response.json().then((data) => {
@@ -107,15 +107,27 @@
                         main.appendChild(biblioteca.listarEstabelecimentoDiv(
                             biblioteca.criaCardEstabelecimento(data)
                         ));
+                        localStorage.setItem('textEstab',JSON.stringify(data));
 
                     });
                 } else {
-                    response.json().then((data) => {
-                        biblioteca.notification.create({
-                            text: JSON.stringify(data),
-                            type: 'error'
-                        });
-                    });
+
+                    
+                    // response.json().then((data) => {
+                    //     biblioteca.notification.create({
+                    //         text: JSON.stringify(data),
+                    //         type: 'error'
+                    //     });
+                    // });
+                    let stringlocalStorage = localStorage.getItem('textEstab');
+                    if(stringlocalStorage){
+                    storage = JSON.parse(stringlocalStorage);
+                    console.log(storage);  
+                    main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                    biblioteca.criaCardEstabelecimento(storage)
+                    ));           
+                    }
+                    
                 }
             }).catch((error) => {
                 console.log('Erro geral na comunicação:', error);
@@ -169,17 +181,26 @@
                                             main.appendChild(biblioteca.listarEstabelecimentoDiv(
                                                 biblioteca.criaCardEstabelecimento(data)
                                             ));
+                                            localStorage.setItem('text',JSON.stringify(data));
 
                                         });
 
                                     } else {
-                                        response.json().then((data) => {
-                                            biblioteca.notification.create({
-                                                text: JSON.stringify(data),
-                                                type: 'error'
-                                            });
-                                        });
-                                    }
+                                        // response.json().then((data) => {
+                                        //     biblioteca.notification.create({
+                                        //         text: JSON.stringify(data),
+                                        //         type: 'error'
+                                        //     });
+                                        // });
+                                        let stringlocalStorage = localStorage.getItem('textEstab');
+                                        if(stringlocalStorage){
+                                        storage = JSON.parse(stringlocalStorage);
+                                        console.log(storage);  
+                                        main.appendChild(biblioteca.listarEstabelecimentoDiv(
+                                        biblioteca.criaCardEstabelecimento(storage)
+                                        ));           
+                                        }
+                                }
                                 }).catch((error) => {
                                     console.log('Erro geral na comunicação:', error);
                                 });
