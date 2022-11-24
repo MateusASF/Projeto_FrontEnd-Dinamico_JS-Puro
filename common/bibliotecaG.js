@@ -592,6 +592,7 @@ window.biblioteca = {
         categorias.forEach((item) => {
             let contador = 0;
             let idFilter = ""
+
             estabelecimentos.forEach((elemento) => {
                 if (elemento.category.uid === item.uid) {
                     idFilter = item.uid
@@ -616,14 +617,13 @@ window.biblioteca = {
         })
         document.body.appendChild(footer);
     },
-    filtrarEstabelecimentos: (idFilter, link) => {    
-        console.log(link)   
-        console.log(idFilter)   
+    filtrarEstabelecimentos: (idFilter, link) => {     
 
         var passaValor= function(valor)
         {
             window.location = `${link}?minhaVariavel=` + valor;
         }
+        
         passaValor(idFilter);
     },
     queryString: (parameter) => {
