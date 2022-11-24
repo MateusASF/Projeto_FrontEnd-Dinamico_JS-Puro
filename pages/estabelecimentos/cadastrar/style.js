@@ -78,9 +78,6 @@
                 display: flex;
                 flex-direction: column;
             }
-
-
-
             `;
             document.body.appendChild(style);
         })(); 

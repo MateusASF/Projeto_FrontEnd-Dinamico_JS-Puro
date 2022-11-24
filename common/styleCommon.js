@@ -175,21 +175,6 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-        // div.actions {
-        //     margin-top: 20px;
-        // }
-        // div.actions button {
-        //     font-size: 16px;
-        //     padding: 5px 10px;
-        //     border: solid 2px #777;
-        //     background: #f6f2f2;
-        //     border-radius: 10px;
-        //     margin-right: 10px;
-        // }
-        // div.actions button.primary {
-        //     border: solid 2px #777;
-        //     background: #f6f2f2;
-        // }
         div.notification {
             position: fixed;
             bottom: 20px;

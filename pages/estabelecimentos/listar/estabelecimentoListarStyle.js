@@ -27,14 +27,12 @@
         .field input:hover{
             border-color: #caae7a;
             border-width: 0.3rem;
-        
         }
         
         .field input:focus{
             border-color: #caae7a;
             border-width: 0.3rem;
             background-color: #f5e9d2;
-        
         }
         
         .field input::placeholder{
@@ -73,18 +71,6 @@
             font-size: 1.1rem;
             margin: 0 7px;
             color: #121842;
-        }
-
-        @media(max-width: 1024px) and (min-width: 769px){
-
-        }
-
-        @media(max-width: 768px) and (min-width: 481px){
-
-        }
-
-        @media(max-width: 480px) and (min-width: 320px){
-
         }
         `;
     document.body.appendChild(style);

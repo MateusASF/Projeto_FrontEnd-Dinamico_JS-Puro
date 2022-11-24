@@ -157,28 +157,11 @@
             background: #ab956d;
             border-radius: 20px;
             text-align: center;
-            position:relative;
-            top: 40px;
         }
         div.field {
             margin-bottom: 10px;
             font-weight: bold;
         }
-        // div.actions {
-        //     margin-top: 20px;
-        // }
-        // div.actions button {
-        //     font-size: 16px;
-        //     padding: 5px 10px;
-        //     border: solid 2px #777;
-        //     background: #f6f2f2;
-        //     border-radius: 10px;
-        //     margin-right: 10px;
-        // }
-        // div.actions button.primary {
-        //     border: solid 2px #777;
-        //     background: #f6f2f2;
-        // }
 
         button{
             margin-left: 6px;
