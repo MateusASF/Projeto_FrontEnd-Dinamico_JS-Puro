@@ -15,8 +15,8 @@
             margin: 3vw 10vw;
             display: flex;
             flex-direction: column;
-            alignItems: center;
-            justifyContent: center;
+            align-items: center;
+            justify-content: space-evenly;
             border-radius: 3vw;
             height: 40vh;
         }
@@ -24,6 +24,8 @@
         .cardResumeContainer h1, h2, span, p {
             text-align: center;
             color: #121842;
+            padding-left: 5vw;
+            padding-right: 5vw;
         }
 
         .cardResumeContainer h2 {

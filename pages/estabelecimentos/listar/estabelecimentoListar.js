@@ -37,6 +37,9 @@
             ])
         )
 
+        const formContainer = biblioteca.createDiv('form-container');
+        const h1 = biblioteca.createH1('Lista de Estabelecimentos', 'data-h1', formContainer);
+        main.appendChild(formContainer);
 
         const inputs = {
             busca: biblioteca.input({
@@ -138,23 +141,23 @@
             });
         }
         //=========================
-        main.appendChild(
+        formContainer.appendChild(
             biblioteca.div([
                 biblioteca.form([
                     biblioteca.field({
-                        label: 'Busca',
+                        label: 'Buscar por Nome do Estabelecimento',
                         input: inputs.busca
                     }),
                     biblioteca.field({
-                        label: 'Categoria',
+                        label: 'Buscar por Categoria',
                         input: inputs.categoria
                     }),
                     biblioteca.actions([
-                        biblioteca.button({
-                            text: 'Voltar',
-                            onClick: () => {
-                            }
-                        }),
+                        // biblioteca.button({
+                        //     text: 'Voltar',
+                        //     onClick: () => {
+                        //     }
+                        // }),
                         biblioteca.button({
                             text: 'Buscar',
                             type: 'primary',

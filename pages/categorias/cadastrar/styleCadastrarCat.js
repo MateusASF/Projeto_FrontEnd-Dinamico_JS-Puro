@@ -171,21 +171,93 @@
             margin-bottom: 10px;
             font-weight: bold;
         }
-        div.actions {
-            margin-top: 20px;
-        }
-        div.actions button {
-            font-size: 16px;
-            padding: 5px 10px;
-            border: solid 2px #777;
-            background: #f6f2f2;
+        // div.actions {
+        //     margin-top: 20px;
+        // }
+        // div.actions button {
+        //     font-size: 16px;
+        //     padding: 5px 10px;
+        //     border: solid 2px #777;
+        //     background: #f6f2f2;
+        //     border-radius: 10px;
+        //     margin-right: 10px;
+        // }
+        // div.actions button.primary {
+        //     border: solid 2px #777;
+        //     background: #f6f2f2;
+        // }
+
+        button{
+            margin-left: 6px;
+            padding: 5px;
+            background-color:  rgb(10, 29, 116);
+            color:rgb(207, 208, 209);
+            width: 10rem;
+            height: auto;
+            font-size: 1.2rem;
+            font-weight:600;
             border-radius: 10px;
-            margin-right: 10px;
+            border-width: 0.1rem;
         }
-        div.actions button.primary {
-            border: solid 2px #777;
-            background: #f6f2f2;
+
+        .label-container{
+            display: flex;
+            justify-content:space-around;
+            align-items: baseline;
+            
+            justify-content: center;
         }
+        
+        label {
+            color: rgb(207, 208, 209);
+            font-size: 1.2rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        input{
+            border-radius: 15px;
+            border-width: 0.1rem;
+            border-color: #f1f0ec;
+            height: 1.8rem;
+            width: 50%;
+            transition: 0.3s;
+            color:rgb(10, 29, 116);
+            margin-top: 0.7rem;
+        
+        }
+        
+        .field input:hover{
+            border-color: #caae7a;
+            border-width: 0.3rem;
+        
+        }
+        
+        .field input:focus{
+            border-color: #caae7a;
+            border-width: 0.3rem;
+            background-color: #f5e9d2;
+        
+        }
+        
+        .field input::placeholder{
+        color: rgb(207, 208, 209);
+        font-size: 0.8rem;
+        font-style: italic;
+        }
+
+        h1{
+            position: relative;
+            text-align: center;
+            color: rgb(10, 29, 116);
+            font-size: 1.6rem;        
+        }
+
+        .form-container{
+            display: flex;
+            flex-direction: column;
+        }
+
         div.notification {
             position: fixed;
             bottom: 80px;

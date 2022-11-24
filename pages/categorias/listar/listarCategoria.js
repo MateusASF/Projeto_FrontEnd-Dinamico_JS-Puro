@@ -90,19 +90,23 @@
             
         });
 
-        main.appendChild(
+        const formContainer = biblioteca.createDiv('form-container');
+        const h1 = biblioteca.createH1('Lista de Categorias', 'data-h1', formContainer);
+        main.appendChild(formContainer);
+
+        formContainer.appendChild(
             biblioteca.div([
                 biblioteca.form([
                     biblioteca.field({
-                        label: 'Busca',
+                        label: 'Buscar categoria por nome',
                         input: inputs.busca
                     }),
                     biblioteca.actions([
-                        biblioteca.button({
-                            text: 'Voltar',
-                            onClick: () => {
-                            }
-                        }),
+                        // biblioteca.button({
+                        //     text: 'Voltar',
+                        //     onClick: () => {
+                        //     }
+                        // }),
                         biblioteca.button({
                             text: 'Buscar',
                             type: 'primary',

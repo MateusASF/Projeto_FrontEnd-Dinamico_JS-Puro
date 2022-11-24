@@ -31,6 +31,33 @@
             bottom: 0;
         }
 
+        h1{
+            position: relative;
+            text-align: center;
+            color: rgb(10, 29, 116);
+            font-size: 1.6rem;        
+        }
+
+        label {
+            color: rgb(207, 208, 209);
+            font-size: 1.2rem;
+            text-align: left;
+            width: 100%;
+        }
+
+        button{
+            margin-left: 6px;
+            padding: 5px;
+            background-color:  rgb(10, 29, 116);
+            color:rgb(207, 208, 209);
+            width: 10rem;
+            height: auto;
+            font-size: 1.2rem;
+            font-weight:600;
+            border-radius: 10px;
+            border-width: 0.1rem;
+        }
+
         .cardMenu{
             display: flex;
             flex-direction: row;
@@ -144,27 +171,25 @@
             }
         }
 
-
-
         div.field {
             margin-bottom: 10px;
             font-weight: bold;
         }
-        div.actions {
-            margin-top: 20px;
-        }
-        div.actions button {
-            font-size: 16px;
-            padding: 5px 10px;
-            border: solid 2px #777;
-            background: #f6f2f2;
-            border-radius: 10px;
-            margin-right: 10px;
-        }
-        div.actions button.primary {
-            border: solid 2px #777;
-            background: #f6f2f2;
-        }
+        // div.actions {
+        //     margin-top: 20px;
+        // }
+        // div.actions button {
+        //     font-size: 16px;
+        //     padding: 5px 10px;
+        //     border: solid 2px #777;
+        //     background: #f6f2f2;
+        //     border-radius: 10px;
+        //     margin-right: 10px;
+        // }
+        // div.actions button.primary {
+        //     border: solid 2px #777;
+        //     background: #f6f2f2;
+        // }
         div.notification {
             position: fixed;
             bottom: 20px;
