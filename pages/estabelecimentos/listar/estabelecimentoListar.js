@@ -161,7 +161,7 @@
                             onClick: () => {
                                 const remover = document.getElementsByClassName('containerCards')[0]
                                 if (remover !== undefined) {
-                                    main.removeChild(remover)
+                                    remover.remove()
                                 }
                                 if (inputs.busca.value !== "") {
                                     fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/establishment/list', {
