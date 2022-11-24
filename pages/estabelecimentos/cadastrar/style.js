@@ -27,7 +27,7 @@
                 justify-content:space-around;
                 align-items: center;
                 width: 25%;
-                height: 2.0rem;
+                height: 1.5rem;
             }
             
             .field input{
@@ -65,7 +65,7 @@
                 display: flex;
                 justify-content:space-around;
                 align-items: baseline;
-                font-size: 1.5rem;
+                font-size: 1.2rem;
                 justify-content: center;
             }
             

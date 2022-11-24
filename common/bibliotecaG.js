@@ -604,7 +604,7 @@ window.biblioteca = {
             const link = document.createElement('a');
 
 
-            link.textContent = `${item.name +" "+ contador}`
+            link.textContent = `${(item.name).toUpperCase() +" "+ contador}`
 
             link.addEventListener('click', () => biblioteca.filtrarEstabelecimentos(idFilter, url));
 
