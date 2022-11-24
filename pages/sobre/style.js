@@ -21,7 +21,7 @@
             height: 40vh;
         }
         
-        .cardResumeContainer h1, h2, span, p {
+        .cardResumeContainer h1, h2, h3, p {
             text-align: center;
             color: #121842;
             padding-left: 5vw;

@@ -169,7 +169,7 @@ window.biblioteca = {
 
         const workResumeTitle = document.createElement('h1');
         const workResumeSubTitle = document.createElement('h2');
-        const workResumeFocusText = document.createElement('span');
+        const workResumeFocusText = document.createElement('h3');
         const workResumeText = document.createElement('p');
 
         workResumeTitle.textContent = workResumeTitleContent;
