@@ -45,6 +45,51 @@
             })
         }
 
+        fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: inputs.busca.value,
+                group: {
+                    uid: "1a7fba04-cc35-4ded-b0ab-fdfcfd649df2"
+                }
+            })
+        }).then((response) => {
+            if (response.ok) {
+            
+                response.json().then((data) => {                                            
+                    main.appendChild(biblioteca.listarCategoriaDiv(
+                        biblioteca.criaCardCategoria(data)))
+                    localStorage.setItem('text',JSON.stringify(data));
+                        
+            })
+            
+
+            } else {
+                // response.json().then((data) => {
+                //     biblioteca.notification.create({
+                //         text: JSON.stringify(data),
+                //         type: 'error'
+                    
+                // });
+            // });
+                let stringlocalStorage = localStorage.getItem('text');
+                if(stringlocalStorage){
+                storage = JSON.parse(stringlocalStorage);
+                console.log(storage);  
+                main.appendChild(biblioteca.listarCategoriaDiv(
+                    biblioteca.criaCardCategoria(storage)))
+                ;           
+                }
+        
+            }
+        }).catch((error) => {
+            //console.log('Erro geral na comunicação:', error);
+            
+        });
+
         main.appendChild(
             biblioteca.div([
                 biblioteca.form([
@@ -66,7 +111,7 @@
                                 if (remover !== undefined) {
                                     remover.remove()
                                 }
-                                    fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/liseeet', {
+                                    fetch('http://estabelecimentos.letscode.dev.netuno.org:25390/services/category/list', {
                                         method: 'POST',
                                         headers: {
                                             "Content-Type": "application/json"
@@ -79,7 +124,7 @@
                                         })
                                     }).then((response) => {
                                         if (response.ok) {
-                                          
+                                        
                                             response.json().then((data) => {                                            
                                                 main.appendChild(biblioteca.listarCategoriaDiv(
                                                     biblioteca.criaCardCategoria(data)))
