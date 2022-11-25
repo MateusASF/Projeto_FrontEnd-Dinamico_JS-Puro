@@ -5,7 +5,7 @@
 * Através de uma API fornecida pelo professor responsável, os integrantes do trabalho realizaram a criação de páginas para executar o CRUD da API, utiliação de storage e outros elementos da linguagem</br>
 
 <p align="center">
-  <img src="#"/>
+  <img src="./indexBaroesDaApizinha.png"/>
 </p>
 
 ## Como executar
