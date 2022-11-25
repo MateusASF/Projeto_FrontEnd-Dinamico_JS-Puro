@@ -79,8 +79,8 @@
                     response.json().then((data) => {
 
                         main.appendChild(biblioteca.listarEstabelecimentoDiv(
-                            biblioteca.criaCardEstabelecimento(data)
-                        ));
+                            biblioteca.criaCardEstabelecimento(data)))
+                        localStorage.setItem('textEstab', JSON.stringify(data));                        ;
                     });
 
 
@@ -175,7 +175,7 @@
                                                 main.appendChild(biblioteca.listarEstabelecimentoDiv(
                                                     biblioteca.criaCardEstabelecimento(data)
                                                 ));
-                                                localStorage.setItem('text', JSON.stringify(data));
+                                                localStorage.setItem('textEstab', JSON.stringify(data));
 
                                             });
 
@@ -216,7 +216,7 @@
                                                 main.appendChild(biblioteca.listarEstabelecimentoDiv(
                                                     biblioteca.criaCardEstabelecimento(data)
                                                 ));
-                                                localStorage.setItem('text', JSON.stringify(data));
+                                                localStorage.setItem('textEstab', JSON.stringify(data));
 
                                             });
 
