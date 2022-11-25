@@ -1,6 +1,7 @@
 (() => {
     for (const file of [
         'common/bibliotecaG.js',
+        'common/styleCommom.js',
         'pages/categorias/editar/styleEditarCat.js',
         'common/api.js'
     ]) {
@@ -34,6 +35,9 @@
             ])
         )
 
+        const formContainer = biblioteca.createDiv('form-container');
+        const h1 = biblioteca.createH1('Atualizar Cadastro de Categoria', 'data-h1', formContainer);
+        main.appendChild(formContainer);
 
         const inputs = {
             codigo: biblioteca.input({
@@ -50,7 +54,7 @@
             })
         }
 
-        main.appendChild(
+        formContainer.appendChild(
             biblioteca.form([
                 biblioteca.field({
                     label: 'Código',

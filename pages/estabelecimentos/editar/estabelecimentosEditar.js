@@ -86,7 +86,7 @@
 
         const formContainer = biblioteca.createDiv('form-container');
 
-        const h1 = biblioteca.createH1('Atualização Cadastral', 'data-h1', formContainer);
+        const h1 = biblioteca.createH1('Atualizar Cadastro de Estabelecimento', 'data-h1', formContainer);
 
         main.appendChild(formContainer);
 

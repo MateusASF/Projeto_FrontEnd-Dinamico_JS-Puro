@@ -198,7 +198,6 @@
         div.notification-warn {
             color: #a1a143;
         }
-
         
         .img-container{
             position: relative;

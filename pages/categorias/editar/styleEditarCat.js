@@ -157,28 +157,64 @@
             background: #ab956d;
             border-radius: 20px;
             text-align: center;
-            position:relative;
-            top: 40px;
+            top: 10rem;
         }
+
+        .form-container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1{
+            position: relative;
+            text-align: center;
+            color: rgb(10, 29, 116);
+            font-size: 1.6rem;        
+        }
+
         div.field {
             margin-bottom: 10px;
             font-weight: bold;
         }
-        div.actions {
-            margin-top: 20px;
+
+
+        input{
+            border-radius: 15px;
+            border-width: 0.1rem;
+            border-color: #f1f0ec;
+            height: 1.8rem;
+            width: 50%;
+            transition: 0.3s;
+            color:rgb(10, 29, 116);
         }
-        div.actions button {
-            font-size: 16px;
-            padding: 5px 10px;
-            border: solid 2px #777;
-            background: #f6f2f2;
+
+        
+        .field input::placeholder{
+        color: rgb(207, 208, 209);
+        font-size: 0.8rem;
+        font-style: italic;
+        }
+
+        button{
+            margin-left: 6px;
+            padding: 5px;
+            background-color:  rgb(10, 29, 116);
+            color:rgb(207, 208, 209);
+            width: 10rem;
+            height: auto;
+            font-size: 1.2rem;
+            font-weight:600;
             border-radius: 10px;
-            margin-right: 10px;
+            border-width: 0.1rem;
         }
-        div.actions button.primary {
-            border: solid 2px #777;
-            background: #f6f2f2;
+                      
+        label {
+            color: rgb(207, 208, 209);
+            text-align: left;
+            font-size: 1.2rem;
+            width: 100%;
         }
+
         div.notification {
             position: fixed;
             bottom: 80px;

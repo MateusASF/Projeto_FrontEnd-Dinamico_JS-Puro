@@ -79,10 +79,9 @@
         }
 
         const formContainer = biblioteca.createDiv('form-container');
-        const h1 = biblioteca.createH1('Cadastre seu  estabelecimento', 'data-h1', formContainer);
-
-
+        const h1 = biblioteca.createH1('Cadastre seu  Estabelecimento', 'data-h1', formContainer);
         main.appendChild(formContainer);
+        
         formContainer.appendChild(
             biblioteca.createForm2([
                 biblioteca.createField2({
