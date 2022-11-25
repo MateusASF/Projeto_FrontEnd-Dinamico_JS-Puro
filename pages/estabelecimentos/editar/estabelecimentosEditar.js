@@ -163,14 +163,14 @@
                             if (response.ok) {
                                 response.json().then((data) => {
                                     biblioteca.notification.create({
-                                        text: JSON.stringify(data),
+                                        text: "Editado com Sucesso",
                                         type: 'success'
                                     });
                                 });
                             } else {
                                 response.json().then((data) => {
                                     biblioteca.notification.create({
-                                        text: JSON.stringify(data),
+                                        text: "Não foi possível editar",
                                         type: 'error'
                                     });
                                 });

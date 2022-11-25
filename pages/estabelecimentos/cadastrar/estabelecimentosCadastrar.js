@@ -149,14 +149,14 @@
                             if (response.ok) {
                                 response.json().then((data) => {
                                     biblioteca.notification.create({
-                                        text: JSON.stringify(data),
+                                        text: "Cadastrado com Sucesso",
                                         type: 'success'
                                     });
                                 });
                             } else {
                                 response.json().then((data) => {
                                     biblioteca.notification.create({
-                                        text: JSON.stringify(data),
+                                        text: "Não foi possível cadastrar",
                                         type: 'error'
                                     });
                                 });

@@ -101,7 +101,10 @@
                                 alert('Erro geral na comunicação:')
                             }
                             )
-                            alert('Item editado com sucesso')
+                            biblioteca.notification.create({
+                                text: 'Item editado com sucesso',
+                                type: 'sucess'
+                            })
                         }
                     })
                 ])

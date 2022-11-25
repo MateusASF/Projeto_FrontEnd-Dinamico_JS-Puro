@@ -223,25 +223,26 @@
 
         div.notification {
             position: fixed;
-            bottom: 80px;
+            bottom: 20px;
             right: 20px;
             width: 200px;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
-            background: #121842;
-            border-radius: 10px;
+            background: #e8e8e8;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
         div.notification-error {
-            color: #f6f2f2;
+            color: #a14343;
         }
         div.notification-success {
-            color: #f6f2f2;
+            color: #43a143;
         }
         div.notification-info {
-            color: #f6f2f2;
+            color: #43a143;
         }
         div.notification-warn {
-            color: #f6f2f2;
+            color: #a1a143;
         }
 
         .img-container{

@@ -93,7 +93,7 @@
                                 if (response.ok) {
                                     response.json().then((data) => {
                                         biblioteca.notification.create({
-                                            text: "Cadastro realido com sucesso!",
+                                            text: "Cadastro realizado com sucesso!",
                                             type: 'success'
                                         });
                                     });
